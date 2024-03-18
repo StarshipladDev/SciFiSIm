@@ -8,15 +8,15 @@
     ".NETCoreApp,Version=v9.0": {
       "SciFiSim/1.0.0": {
         "dependencies": {
-          "SciFISIm.Logic": "1.0.0"
+          "SciFiSim.Logic": "1.0.0"
         },
         "runtime": {
           "SciFiSim.dll": {}
         }
       },
-      "SciFISIm.Logic/1.0.0": {
+      "SciFiSim.Logic/1.0.0": {
         "runtime": {
-          "SciFISIm.Logic.dll": {}
+          "SciFiSim.Logic.dll": {}
         }
       }
     }
@@ -27,7 +27,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "SciFISIm.Logic/1.0.0": {
+    "SciFiSim.Logic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SciFISIm.Logic.Models.Entities.Root
+namespace SciFiSim.Logic.Models.Entities.Root
 {
     public class Entity
     {

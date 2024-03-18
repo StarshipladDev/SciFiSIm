@@ -9,3 +9,15 @@ C:\Code\C#\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.dll
 C:\Code\C#\SciFISIm.Logic\obj\Debug\net9.0\refint\SciFISIm.Logic.dll
 C:\Code\C#\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.pdb
 C:\Code\C#\SciFISIm.Logic\obj\Debug\net9.0\ref\SciFISIm.Logic.dll
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\bin\Debug\net9.0\SciFISIm.Logic.deps.json
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\bin\Debug\net9.0\SciFISIm.Logic.dll
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\bin\Debug\net9.0\SciFISIm.Logic.pdb
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.AssemblyInfoInputs.cache
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.AssemblyInfo.cs
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.csproj.CoreCompileInputs.cache
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.sourcelink.json
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.dll
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\refint\SciFISIm.Logic.dll
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\SciFISIm.Logic.pdb
+C:\Code\C#\SpecOpsControlApp\SciFISIm.Logic\obj\Debug\net9.0\ref\SciFISIm.Logic.dll

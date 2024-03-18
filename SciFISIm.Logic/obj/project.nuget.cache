@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AJcf+6cWl8YHE3sW+wgpkKZKKEr45nPrsjpbpi8RDTzltG8kRTNhdhnVVt2FujyWW/jehRKVPZ1PijhITmwQiQ==",
+  "dgSpecHash": "5riLgluhyfT/yFamNX0cHQdNPG51O8N18H1K08wJuNHV0jJbUZkCFCImbzOpbwgZp7Kt5LbZwoANl7vxkIw5Vg==",
   "success": true,
-  "projectFilePath": "C:\\Code\\C#\\SciFISIm.Logic\\SciFISIm.Logic.csproj",
+  "projectFilePath": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\SciFiSim.Logic.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

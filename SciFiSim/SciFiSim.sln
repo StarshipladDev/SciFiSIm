@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciFiSim", "SciFiSim.csproj", "{1A05F40B-5157-4F0B-A989-897FC8DF5C08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciFISIm.Logic", "..\SciFISIm.Logic\SciFISIm.Logic.csproj", "{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciFiSim.Logic", "..\SciFISIm.Logic\SciFiSim.Logic.csproj", "{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SciFiSim;
-using SciFISIm.Logic.Models.Entities.Root;
-namespace SciFiSim.Logic
+using SciFiSim.Logic.Models.Entities.Root;
+namespace SciFiSim.ControlFactory
 {
-    internal static class Main
+    internal static class EntityControl
     {
         public static System.Windows.Forms.Control GetEntityControl()
         {

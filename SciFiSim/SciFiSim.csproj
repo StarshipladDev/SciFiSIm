@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SciFISIm.Logic\SciFISIm.Logic.csproj" />
+    <ProjectReference Include="..\SciFISIm.Logic\SciFiSim.Logic.csproj" />
   </ItemGroup>
 
 </Project>
