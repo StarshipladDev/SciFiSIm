@@ -40,3 +40,5 @@ C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\SciFISIm.Logic.pd
 C:\Code\C#\SpecOpsControlApp\SciFiSim\obj\Debug\net9.0-windows\SciFiSim.csproj.Up2Date
 C:\Code\C#\SpecOpsControlApp\SciFiSim\obj\Debug\net9.0-windows\SciFiSim.genruntimeconfig.cache
 C:\Code\C#\SpecOpsControlApp\SciFiSim\obj\Debug\net9.0-windows\ref\SciFiSim.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Credentials.config
