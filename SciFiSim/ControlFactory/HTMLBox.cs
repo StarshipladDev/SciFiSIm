@@ -13,6 +13,7 @@ namespace SciFiSim.ControlFactory
         public static Control GetHTMLBox(string htmlContent)
         {
             WebBrowser webBrowser = new WebBrowser();
+           //webBrowser.Navigate("www.facebook.com");
             webBrowser.DocumentText = htmlContent;
             webBrowser.Document.OpenNew(true);
             webBrowser.DocumentText = "";
