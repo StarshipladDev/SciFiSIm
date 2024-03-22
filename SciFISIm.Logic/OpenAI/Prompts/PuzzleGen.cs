@@ -13,20 +13,28 @@ namespace SciFiSim.Logic.OpenAI.Prompts
             this.model = "gpt-3.5-turbo";
             
             this.messages = new List<Message>();
-            this.messages.Add(new Message("system","You are a tool that generates puzzels." +
-                "The format of the puzle is 30 news headlines about mundane events in a small british town," +
-                "each headline will be followed by a greek alphabet letter written in captial letters, whereas" +
-                "the headline is written in lower case. Each greek latter should be repeated at least once except" +
-                $"4 of them. Each headline should also have one word that is the [KEYWORD] that is, unlike the rest " +
-                $"of the scentence, written in full caps. The answer will be the 4 headline's [KEYWORD]s preceding " +
-                $"the 4 non-repeated greek alphabet lettersd. The greek alphabet letters should be written in english " +
-                $"such as 'PI' or 'TAU'. The only things to be written in all caps should be the greek alphabet words " +
-                $"and the [KEYWORD] in each headline . An example with 4 headlines and 2 keywords as the answer would be " +
-                $"'boy eats CAKE' ALPHA , 'woman steals TOFFEE' BETA, 'Dog chases CAT' BETA , 'DOG buys dish' DELTA ,with" +
-                $" the answer being CAKE,DOG as those keywords preceded the non-repeated greek alphabet cahracters ALPHA and" +
-                $" DELTA, whereas ALPHA appeared twice. The prompt you return should have 4 KEYWORDs in total and 30 headlines. " +
-                $"The answer should be returned at the end of each reply"));
-            this.messages.Add(new Message("user", "Generate me a puzzle"));
+            this.messages.Add(new Message("system", "You are a tool that generates generic sounding british town headlines" +
+                @"
+                You will be given a list of comma seperated names.
+                The form of the puzzle you will return is 10 first and last names, sperated only by commas and with a '|' character at the end of the list of all of the names,
+                followed by 30 newspaper headlines.
+                Each headline must be seperated by a '/n' character.
+                These headliens will be random british-based headlines set in an unammed fake village.
+                Every headline must include the text '[Name]' and be about a mundane action they preformed.
+                These must be randomly ordered in the other headlines that instead use names you generate.
+                As an example, you might return 
+                'Jim Garnet, Ozzy Cambridge, Julie Clemment | [Name] eats muffins/n local prior [Name] takes mass /n elderly woman [Name] does a run /n 
+                local man [Name] builds wall with neighbour /n [Name] begins swimming lessons'.
+                Therefore, your reply must be 10 names, the '|' character, 30 random british town headlines, each containign at most one [Name].
+                It is of upmost importance the reply has only a single '|' character and each headline is seperated by '/n'.
+                No acctual names should ever be used, only the '[Name]' value, including the brackets around it 
+                "
+            )
+            {
+
+            });
+
+            this.messages.Add(new Message("user", "Make me a puzzle"));
         }
     }
 }

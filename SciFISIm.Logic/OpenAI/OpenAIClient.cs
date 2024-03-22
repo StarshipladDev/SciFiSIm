@@ -43,8 +43,10 @@ namespace SciFiSim.Logic.OpenAI
             string resposneText = await response.Content.ReadAsStringAsync();
             dynamic result = JsonConvert.DeserializeObject(resposneText);
             string replyContent = result.choices[0].message.content;
-            PuzzleReply reply = new PuzzleReply(replyContent);
+            Reply reply = new PuzzleReply(replyContent, ["John Clemment", "Oscar Allen", "Josephine Jefferson"]);
             return reply;
+
+
 
         }
     }

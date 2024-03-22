@@ -1,5 +1,6 @@
 ﻿using SciFiSim.Logic.OpenAI;
 using SciFiSim.Logic.OpenAI.Prompts;
+using SciFiSim.Logic.OpenAI.Replies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,10 @@ namespace SciFiSim.Logic.Test
 {
     public class OpenAITest
     {
-        public static async void Main(string[] args)
+        public static async Task<Reply> Main(string[] args)
         {
-            await OpenAIClient.GetPuzzleReply(new PuzzleGen());
+            Reply returnText = await OpenAIClient.GetPuzzleReply(new PuzzleGen());
+            return returnText;
         }
     }
 }

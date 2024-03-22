@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SciFiSim.HTMLTemplates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace SciFiSim.ControlFactory
             WebBrowser webBrowser = new WebBrowser();
             webBrowser.DocumentText = htmlContent;
             webBrowser.Document.OpenNew(true);
-            webBrowser.DocumentText = htmlContent;
+            webBrowser.DocumentText = "";
             webBrowser.Document.Write(htmlContent);
             return webBrowser;
         }
