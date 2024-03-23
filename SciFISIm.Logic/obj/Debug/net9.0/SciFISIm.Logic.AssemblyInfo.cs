@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SciFiSim.Logic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f11038c0b9da61beb8d449501bf951b0167db42")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9451e98f42bd238d035f3643c4edba457a8a51d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("SciFiSim.Logic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SciFiSim.Logic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
