@@ -3,5 +3,5 @@ using LogicTestApp.Tests;
 
 Console.WriteLine("Hello, World!");
 PersonTest.TestPeopleCreation();
-TimeTest.TestTimeRunning();
+SimulationTest.SimulationTestRunning();
 Console.ReadLine();

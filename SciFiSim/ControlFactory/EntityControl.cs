@@ -7,7 +7,7 @@ using SciFiSim;
 using SciFiSim.Logic.Models.Entities.Root;
 namespace SciFiSim.ControlFactory
 {
-    internal static class EntityControl
+    public static class EntityControl
     {
         public static System.Windows.Forms.Control GetEntityControl()
         {

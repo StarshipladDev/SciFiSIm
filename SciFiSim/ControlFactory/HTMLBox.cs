@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace SciFiSim.ControlFactory
 {
-    internal class HTMLBox
+    public class HTMLBox
     {
         public static Control GetHTMLBox(string htmlContent)
         {

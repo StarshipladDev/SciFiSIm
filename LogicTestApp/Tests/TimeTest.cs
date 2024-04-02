@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LogicTestApp.Tests
 {
-    internal class TimeTest
+    public class TimeTest
     {
         public static void TestTimeRunning()
         {
@@ -19,7 +19,7 @@ namespace LogicTestApp.Tests
                 new Time("3:00", new Guid()),
                 new Time("4:00", new Guid()),
             };
-            Simulation simulation = new Simulation();
+            Simulation simulation = new Simulation(null,null);
             simulation.RunSimulation(timeList.ToList());
 
         }

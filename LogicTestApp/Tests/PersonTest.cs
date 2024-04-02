@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogicTestApp.Tests
 {
-    internal class PersonTest
+    public class PersonTest
     {
         public static void TestPeopleCreation()
         {

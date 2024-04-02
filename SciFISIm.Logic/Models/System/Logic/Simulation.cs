@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SciFiSim.Logic.Models.Entities.Root;
+using SciFiSim.Logic.Models.Entities.Town;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +16,15 @@ namespace SciFiSim.Logic.Models.System.Logic
         private int currentTimeIndex = 0;
         public List<Time> timeSlots = new List<Time>();
         private Timer timer;
+        public TownSimulation simulation = null;
+        public Simulation(Town? town, List<PersonEntity>? people)
+        {
+            if (town != null && people != null)
+            {
+                this.simulation = new TownSimulation(town, people);
+                this.simulation.SetStartLocation();
+            }
+        }
         public void RunSimulation(List<Time> timeSlots)
         {
             this.timeSlots = timeSlots;
@@ -43,6 +54,14 @@ namespace SciFiSim.Logic.Models.System.Logic
             if (currentTimeIndex >= timeSlots.Count)
             {
                 currentTimeIndex = 0;
+            }
+            if(this.simulation != null)
+            {
+                this.simulation.OnTick();
+                this.simulation.persons.ForEach(person =>
+                {
+                    Console.WriteLine($"person {person.personStyle.firstName} is at cell {person.movements.currentCell.x},{person.movements.currentCell.y}");
+                });
             }
         }
     }
