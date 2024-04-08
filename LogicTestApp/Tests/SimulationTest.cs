@@ -38,7 +38,7 @@ namespace LogicTestApp.Tests
             List<PersonEntity> people = new List<PersonEntity>();
             foreach (string name in listOfNames)
             {
-                people.Add(new PersonEntity(name));
+                people.Add(new PersonEntity(Guid.NewGuid(),name));
             }
             Simulation simulation = new Simulation(town, people);
             simulation.RunSimulation(timeList.ToList());

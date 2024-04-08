@@ -2,6 +2,7 @@
 using LogicTestApp.Tests;
 
 Console.WriteLine("Hello, World!");
+HousesTest.RunHouseTest();
 PersonTest.TestPeopleCreation();
 SimulationTest.SimulationTestRunning();
 Console.ReadLine();

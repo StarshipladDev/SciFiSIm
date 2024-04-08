@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SciFiSim.Logic.Models.Entities.Root
 {
-    public class PersonEntity
+    public class PersonEntity : Entity
     {
         public PersonMovements movements;
         public Person personStyle;
-        public PersonEntity(string fullName)
+        public PersonEntity(Guid entityId, string fullName) : base(entityId)
         {
             this.personStyle = new Person(new Random(), fullName);
             this.movements = new PersonMovements();

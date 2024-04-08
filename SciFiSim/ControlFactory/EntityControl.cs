@@ -14,7 +14,7 @@ namespace SciFiSim.ControlFactory
             Random rand = new Random();
             {
 
-                Entity entity = new Entity(rand.Next(100));
+                Entity entity = new Entity(Guid.NewGuid());
                 System.Windows.Forms.TextBox textBox = new System.Windows.Forms.TextBox();
                 textBox.Text = "Entity ID is " + entity.entityId;
                 return textBox;

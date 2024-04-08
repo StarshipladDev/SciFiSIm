@@ -8,9 +8,9 @@ namespace SciFiSim.Logic.Models.Entities.Root
 {
     public class Entity
     {
-        public int entityId { get; }
+        public Guid entityId { get; }
 
-        public Entity(int entityID)
+        public Entity(Guid entityID)
         {
             this.entityId = entityID;
         }
