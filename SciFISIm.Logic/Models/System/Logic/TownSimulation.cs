@@ -12,11 +12,13 @@ namespace SciFiSim.Logic.Models.System.Logic
     {
         public Town town;
         public List<PersonEntity> persons;
+        public List<BuildingEntity> buildings;
 
-        public TownSimulation(Town town, List<PersonEntity> people)
+        public TownSimulation(Town town, List<PersonEntity> people, List<BuildingEntity> buildings)
         {
             this.town = town;
             this.persons = people;
+            this.buildings = buildings;
         }
         public void SetStartLocation()
         {
@@ -24,6 +26,12 @@ namespace SciFiSim.Logic.Models.System.Logic
             persons.ForEach(person =>
             {
                 person.movements.currentCell = person.movements.targetCell;
+            });
+            Random rand = new Random();
+            buildings.ForEach(building =>
+            {
+                building.behaviour.xLoc = rand.Next(town.townCells.GetLength(0));
+                building.behaviour.yLoc = rand.Next(town.townCells.GetLength(0));
             });
         }
         public void AssignGoals()

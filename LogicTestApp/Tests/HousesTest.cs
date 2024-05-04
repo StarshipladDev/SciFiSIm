@@ -16,10 +16,7 @@ namespace LogicTestApp.Tests
             new HouseDrawObject("style3", 8, 1)
             ];
             string htmlDocumentText = "<html><head></head><body><div style = 'position:relative'>";
-            foreach (string item in SVGs.GetGridWithHouses(500, 10, houses))
-            {
-                htmlDocumentText += item;
-            }
+                htmlDocumentText += SVGs.GetGridWithHouses(500, 10, houses);
             htmlDocumentText += "</div></body></html>";
             Console.WriteLine(htmlDocumentText);
             Console.ReadLine();

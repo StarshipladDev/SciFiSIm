@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LogicTestApp.Tests
 {
@@ -40,8 +41,13 @@ namespace LogicTestApp.Tests
             {
                 people.Add(new PersonEntity(Guid.NewGuid(),name));
             }
-            Simulation simulation = new Simulation(town, people);
-            simulation.RunSimulation(timeList.ToList());
+            List<BuildingEntity> buildings = new List<BuildingEntity>();
+            for (int i = 0; i< 10; i++)
+            {
+                buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Places.BuildingBehaviour(false,0,0)));
+            }
+            Simulation simulation = new Simulation(town, people, buildings);
+            simulation.RunSimulation(timeList.ToList(),null);
 
         }
 

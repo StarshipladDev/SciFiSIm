@@ -19,6 +19,16 @@ namespace SciFiSim.Assets
             X = x;
             Y = y;
         }
+
+        public HouseDrawObject(Logic.Models.Entities.Root.BuildingEntity building)
+        {
+            Random rand = new Random();
+            string[] styleList = ["style1", "style2", "style3"];
+                Style = styleList[rand.Next(styleList.Length)];
+                X = building.behaviour.xLoc;
+                Y = building.behaviour.yLoc;
+            
+        }
     }
     public class SVGs
     {
@@ -33,33 +43,40 @@ namespace SciFiSim.Assets
             "<script> function enRedden(){ moveCircle(); document.getElementById('buttonman').setAttribute('style','background-color:red');}</script>\"" +
             "+</body></html>";
         }
-        public static string[] GetGridWithHouses(int width, int townSize, HouseDrawObject[] houses)
+        public static string GetGridWithHouses(int svgWidth, int townSize, HouseDrawObject[] houses)
         {
             List<string> returnSvgs = new List<string>();
-            
-            returnSvgs.Add(SVGs.GetTownGrid(width, townSize));
-            returnSvgs.Add(SVGs.GetHouseOnTownCell(width, townSize, houses));
-            return returnSvgs.ToArray();
+            int cellSize = svgWidth / townSize;
+            returnSvgs.Add(SVGs.GetTownGrid(svgWidth, townSize));
+            returnSvgs.Add(SVGs.GetHouseOnTownCell(svgWidth, cellSize, houses));
+            string returnText = "<html><head> <meta http-equiv=\"x-ua-compatible\" content=\"IE=11\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"> <title>SVG sample</title> <style type=\"text/css\"> </style>\r\n</head>" +
+            "<body><div>";
+            returnText += returnSvgs[0];
+
+            returnText += returnSvgs[1];
+            returnText += "</div></body></hml>";
+            return returnText;
 
         }
-        public static string GetTownGrid(int width, int townSize)
+        public static string GetTownGrid(int svgWidth, int townSize)
         {
+            int cellWidth = svgWidth / townSize;
             // Define SVG header
-            string svg = $"<svg width=\"{width}\" height=\"{width}\" style = \"position:absolute\">";
+            string svg = $"<svg width=\"{svgWidth}\" height=\"{svgWidth}\" style = \"position:absolute\">";
 
             // Add dust-covered square
-            svg += $"<rect width=\"{width}\" height=\"{width}\" fill=\"lightgrey\" />";
+            svg += $"<rect width=\"{svgWidth}\" height=\"{svgWidth}\" fill=\"lightgrey\" />";
 
             // Add vertical grid lines
-            for (int x = townSize; x < width; x += townSize)
+            for (int x = 0; x < svgWidth; x += cellWidth)
             {
-                svg += $"<line x1=\"{x}\" y1=\"0\" x2=\"{x}\" y2=\"{width}\" stroke=\"black\" />";
+                svg += $"<line x1=\"{x}\" y1=\"0\" x2=\"{x}\" y2=\"{svgWidth}\" stroke=\"black\" />";
             }
 
             // Add horizontal grid lines
-            for (int y = townSize; y < width; y += townSize)
+            for (int y = 0; y < svgWidth; y += cellWidth)
             {
-                svg += $"<line x1=\"0\" y1=\"{y}\" x2=\"{width}\" y2=\"{y}\" stroke=\"black\" />";
+                svg += $"<line x1=\"0\" y1=\"{y}\" x2=\"{svgWidth}\" y2=\"{y}\" stroke=\"black\" />";
             }
 
             // Close SVG tag

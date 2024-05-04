@@ -19,8 +19,8 @@ namespace LogicTestApp.Tests
                 new Time("3:00", new Guid()),
                 new Time("4:00", new Guid()),
             };
-            Simulation simulation = new Simulation(null,null);
-            simulation.RunSimulation(timeList.ToList());
+            Simulation simulation = new Simulation(null,null,null);
+            simulation.RunSimulation(timeList.ToList(),null);
 
         }
 

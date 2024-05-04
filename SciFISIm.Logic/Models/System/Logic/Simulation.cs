@@ -17,21 +17,25 @@ namespace SciFiSim.Logic.Models.System.Logic
         public List<Time> timeSlots = new List<Time>();
         private Timer timer;
         public TownSimulation simulation = null;
-        public Simulation(Town? town, List<PersonEntity>? people)
+        public Simulation(Town? town, List<PersonEntity>? people, List<BuildingEntity>? buildings)
         {
             if (town != null && people != null)
             {
-                this.simulation = new TownSimulation(town, people);
+                this.simulation = new TownSimulation(town, people, buildings);
                 this.simulation.SetStartLocation();
             }
         }
-        public void RunSimulation(List<Time> timeSlots)
+        public void RunSimulation(List<Time> timeSlots, Action<TownSimulation> actionToPreformOnTick)
         {
             this.timeSlots = timeSlots;
             timer = new Timer(2000); // Set the interval to 2 seconds
 
             // Subscribe to the Elapsed event
             timer.Elapsed += this.OnTick;
+            if(actionToPreformOnTick != null)
+            {
+                timer.Elapsed += (sender,e) => { actionToPreformOnTick(simulation); };
+            }
 
             // Enable the timer
             timer.Enabled = true;
@@ -58,10 +62,6 @@ namespace SciFiSim.Logic.Models.System.Logic
             if(this.simulation != null)
             {
                 this.simulation.OnTick();
-                this.simulation.persons.ForEach(person =>
-                {
-                    Console.WriteLine($"person {person.personStyle.firstName} is at cell {person.movements.currentCell.x},{person.movements.currentCell.y}");
-                });
             }
         }
     }

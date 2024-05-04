@@ -2,7 +2,11 @@ using SciFiSim.Assets;
 using SciFiSim.ControlFactory;
 using SciFiSim.HTMLTemplates;
 using SciFiSim.Logic;
+using SciFiSim.Logic.Models.Entities.Root;
+using SciFiSim.Logic.Models.Entities.Town;
+using SciFiSim.Logic.Models.System.Logic;
 using SciFiSim.Logic.OpenAI.Replies;
+using SciFiSim.Renderers;
 using System.Net.Http;
 
 namespace SciFiSim
@@ -60,6 +64,67 @@ namespace SciFiSim
             Controls.Add(openAIButton);
             InitializeComponent();
             webBrowser.Refresh();
+
+
+
+            /* Logic handling */
+            RenderTownSimToSvg renderer = new RenderTownSimToSvg();
+            List<Time> timeList = new List<Time>();
+
+            // Generate times from 0:00 to 23:00
+            for (int hour = 0; hour < 24; hour++)
+            {
+                string timeString = $"{hour}:00"; // Format the time string
+                timeList.Add(new Time(timeString, Guid.NewGuid())); // Add new Time object with a unique Guid
+            }
+            Town town = new Town();
+            string[] listOfNames = {
+                "Amir Al-Farsi",
+                "Leyla Hassani",
+                "Tariq Al-Najjar",
+                "Yasmin Shirazi",
+                "Farid Mostafa",
+                "Nour El-Din",
+                "Sanaa Al-Rashid",
+                "Malik Al-Khalil",
+                "Dalia Al-Saad",
+                "Samir Zahedi"
+            };
+
+            List<PersonEntity> people = new List<PersonEntity>();
+            foreach (string name in listOfNames)
+            {
+                people.Add(new PersonEntity(Guid.NewGuid(), name));
+            }
+            List<BuildingEntity> buildings = new List<BuildingEntity>();
+            for (int i = 0; i < 10; i++)
+            {
+                buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Places.BuildingBehaviour(false, 0, 0)));
+            }
+            Simulation simulation = new Simulation(town, people, buildings);
+            simulation.RunSimulation(timeList.ToList(), async (simulation) => { 
+                string newHtmlText = renderer.RenderSVGFromTow(simulation,250);
+                if (webBrowser.InvokeRequired)
+                {
+                    webBrowser.Invoke(new Action(() =>
+                    {
+                        if (webBrowser.Document != null)
+                        {
+                            webBrowser.Document.Write(newHtmlText);
+                            webBrowser.Refresh();
+                        }
+                    }));
+                }
+                else
+                {
+                    if (webBrowser.Document != null)
+                    {
+                        webBrowser.Document.Write(newHtmlText);
+                        webBrowser.Refresh();
+                    }
+                }
+            });
+
 
         }
     }
