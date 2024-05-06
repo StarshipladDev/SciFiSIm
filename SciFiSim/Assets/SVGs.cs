@@ -1,6 +1,9 @@
-﻿using System;
+﻿using SciFiSim.Logic.Models.Entities.People;
+using SciFiSim.Logic.Models.Entities.Root;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,21 +46,58 @@ namespace SciFiSim.Assets
             "<script> function enRedden(){ moveCircle(); document.getElementById('buttonman').setAttribute('style','background-color:red');}</script>\"" +
             "+</body></html>";
         }
-        public static string GetGridWithHouses(int svgWidth, int townSize, HouseDrawObject[] houses)
+        public static string GetGridWithHouses(int svgWidth, int townSize, HouseDrawObject[] houses, PersonEntity[]? people = null)
         {
             List<string> returnSvgs = new List<string>();
             int cellSize = svgWidth / townSize;
             returnSvgs.Add(SVGs.GetTownGrid(svgWidth, townSize));
             returnSvgs.Add(SVGs.GetHouseOnTownCell(svgWidth, cellSize, houses));
+            if (people != null) returnSvgs.Add(SVGs.GetPeople(svgWidth, townSize, people));
             string returnText = "<html><head> <meta http-equiv=\"x-ua-compatible\" content=\"IE=11\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"> <title>SVG sample</title> <style type=\"text/css\"> </style>\r\n</head>" +
             "<body><div>";
             returnText += returnSvgs[0];
-
             returnText += returnSvgs[1];
+            if (people != null) returnText += returnSvgs[2];
             returnText += "</div></body></hml>";
             return returnText;
 
         }
+
+        public static string GetPeople(int svgWidth, int townSize, PersonEntity[] people)
+        {
+            int cellWidth = svgWidth / townSize;
+            // Define SVG header
+            string svg = $"<svg width=\"{svgWidth}\" height=\"{svgWidth}\" style = \"position:absolute\">";
+            foreach (PersonEntity person in people)
+            {
+
+                /*Skin */
+                var SkinType =  "Assets\\People\\Skin"+person.personStyle.skinColor.skinType.ToString() + ".png";
+                svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
+                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, SkinType)}\" width=\"{cellWidth}\" height=\"{cellWidth}\"/>";
+                /*Eyes */
+                var EyeType = "Assets\\People\\Eyes" + person.personStyle.eyes.eyeType.ToString()+".png";
+
+                var fileExsists = System.IO.File.Exists($"{Path.Combine(Environment.CurrentDirectory, EyeType)}");
+                var fileLocation = $"{Path.Combine(Environment.CurrentDirectory, EyeType)}";
+                svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
+                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, EyeType)}\" width=\"{cellWidth}\"  height=\"{cellWidth}\"/>";
+                /*Mouth */
+                var MouthType = "Assets\\People\\Mouth" + person.personStyle.mouth.mouthType.ToString() + ".png";
+                svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
+                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, MouthType)}\" width=\"{cellWidth}\" height=\"{cellWidth}\"/>";
+                /*Hair */
+                var HairType = "Assets\\People\\Hair" + person.personStyle.hair.hairType.ToString() + ".png";
+                svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
+                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, HairType)}\" width=\"{cellWidth}\"  height=\"{cellWidth}\"/>";
+            }
+
+            // Close SVG tag
+            svg += "</svg>";
+
+            return svg;
+        }
+
         public static string GetTownGrid(int svgWidth, int townSize)
         {
             int cellWidth = svgWidth / townSize;
@@ -131,3 +171,4 @@ namespace SciFiSim.Assets
         }
     }
 }
+

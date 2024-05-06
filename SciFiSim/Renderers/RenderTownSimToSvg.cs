@@ -17,7 +17,7 @@ namespace SciFiSim.Renderers
             {
                 houseList.Add(new HouseDrawObject(building));
             });
-            return SVGs.GetGridWithHouses(svgSize, simulation.town.townCells.GetLength(0), houseList.ToArray());
+            return SVGs.GetGridWithHouses(svgSize, simulation.town.townCells.GetLength(0), houseList.ToArray(), simulation.persons.ToArray());
         }
     }
 }

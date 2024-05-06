@@ -11,7 +11,7 @@ namespace SciFiSim.Logic.Models.Entities.People
         Wide,
         Small,
         Squint,
-        Suscpicious
+        Sus
     }
     public class Eyes : PersonFeature
     {
