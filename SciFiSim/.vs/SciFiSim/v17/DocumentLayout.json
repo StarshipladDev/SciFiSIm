@@ -3,35 +3,26 @@
   "WorkspaceRootPath": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\entities\\people\\hair.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\raidgameinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim\\assets\\svgs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:assets\\svgs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\behaviours\\basicmob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\entities\\people\\skincolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\actions\\blastaway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\entities\\people\\eyes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\action.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim\\renderers\\rendertownsimtosvg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:renderers\\rendertownsimtosvg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\place.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\raidgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim\\scifisim.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:scifisim.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\entities\\people\\mouth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\entities\\people\\nose.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,123 +32,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SkinColor.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\SkinColor.cs",
-              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\People\\SkinColor.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\SkinColor.cs",
-              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\Entities\\People\\SkinColor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "RaidGameInstance.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T07:22:45.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SciFiSim",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\SciFiSim.csproj",
-              "RelativeDocumentMoniker": "SciFiSim.csproj",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\SciFiSim.csproj",
-              "RelativeToolTip": "SciFiSim.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-06T06:58:12.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAgwGsAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T06:58:28.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SVGs.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Assets\\SVGs.cs",
-              "RelativeDocumentMoniker": "Assets\\SVGs.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Assets\\SVGs.cs",
-              "RelativeToolTip": "Assets\\SVGs.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAuwD0AAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T06:48:25.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RenderTownSimToSvg.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Renderers\\RenderTownSimToSvg.cs",
-              "RelativeDocumentMoniker": "Renderers\\RenderTownSimToSvg.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Renderers\\RenderTownSimToSvg.cs",
-              "RelativeToolTip": "Renderers\\RenderTownSimToSvg.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T06:48:07.775Z",
+              "WhenOpened": "2024-05-14T12:08:38.171Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Eyes.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Eyes.cs",
-              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Eyes.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Eyes.cs",
-              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Eyes.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAALAAAA",
+              "Title": "Action.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Action.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Action.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Action.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Action.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T06:41:12.506Z",
+              "WhenOpened": "2024-05-14T12:06:37.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Hair.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Hair.cs",
-              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Hair.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Hair.cs",
-              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Hair.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAvAAAA",
+              "DocumentIndex": 2,
+              "Title": "BlastAway.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actions\\BlastAway.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actions\\BlastAway.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actions\\BlastAway.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actions\\BlastAway.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T06:37:23.01Z",
+              "WhenOpened": "2024-05-14T12:06:25.597Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Mouth.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Mouth.cs",
-              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Mouth.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Mouth.cs",
-              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Mouth.cs",
+              "DocumentIndex": 1,
+              "Title": "BasicMob.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Behaviours\\BasicMob.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Behaviours\\BasicMob.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Behaviours\\BasicMob.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Behaviours\\BasicMob.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T12:03:28.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Place.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T06:35:57.855Z",
+              "WhenOpened": "2024-05-14T12:03:01.87Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Nose.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Nose.cs",
-              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Nose.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\People\\Nose.cs",
-              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\Entities\\People\\Nose.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 5,
+              "Title": "RaidGame.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGame.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGame.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGame.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGame.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T06:34:49.762Z",
+              "WhenOpened": "2024-05-14T12:02:15.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAQwB4AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T10:33:54.643Z",
               "EditorCaption": ""
             }
           ]

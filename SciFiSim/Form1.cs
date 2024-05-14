@@ -24,8 +24,11 @@ namespace SciFiSim
             //Webbrowser
             string htmlText = SVGs.GetSmiley(true);
             WebBrowser webBrowser = (WebBrowser)HTMLBox.GetHTMLBox(htmlText);
-            webBrowser.Location = new Point(this.Location.X + 150, this.Location.Y + 150);
-            webBrowser.Size = new Size(400, 300);
+            WebBrowser clueBrowser = (WebBrowser)HTMLBox.GetHTMLBox("div");
+            webBrowser.Location = new Point(this.Location.X + 50, this.Location.Y + 150);
+            webBrowser.Size = new Size(300, 300);
+            clueBrowser.Location = new Point(this.Location.X + 350, this.Location.Y + 150);
+            clueBrowser.Size = new Size(300, 300);
             textbox.Text = webBrowser.DocumentText;
 
             //OpenAI Button
@@ -42,8 +45,8 @@ namespace SciFiSim
                 // Perform actions when the button is clicked
                 Reply replyFromOpenAI = await SciFiSim.Logic.Test.OpenAITest.Main([]);
                 openAIText.Text = replyFromOpenAI.replyText;
-                webBrowser.Document.Write(Grid.GetGrid(replyFromOpenAI.replyText));
-                webBrowser.Refresh();
+                clueBrowser.Document.Write(Grid.GetGrid(replyFromOpenAI.replyText));
+                clueBrowser.Refresh();
             };
 
             // Move SMiley Button
@@ -54,16 +57,18 @@ namespace SciFiSim
             moveSmileyButton.Click += (sender, e) =>
             {
                 string htmlText = SVGs.GetSmiley(false);
-                webBrowser.Document.Write(htmlText);
+                clueBrowser.Document.Write(htmlText);
             };
 
             Controls.Add(textbox);
             Controls.Add(webBrowser);
+            Controls.Add(clueBrowser);
             Controls.Add(openAIText);
             Controls.Add(moveSmileyButton);
             Controls.Add(openAIButton);
             InitializeComponent();
             webBrowser.Refresh();
+            clueBrowser.Refresh();
 
 
 
