@@ -1,5 +1,7 @@
-﻿using SciFiSim.Logic.Models.Entities.People;
+﻿using SciFiSim.Logic.Models.Entities.Building;
+using SciFiSim.Logic.Models.Entities.People;
 using SciFiSim.Logic.Models.Entities.Root;
+using SciFiSim.Logic.Models.Entities.Town;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +25,33 @@ namespace SciFiSim.Assets
             Y = y;
         }
 
-        public HouseDrawObject(Logic.Models.Entities.Root.BuildingEntity building)
+        public HouseDrawObject(Logic.Models.Entities.Root.BuildingEntity building, BuildingColor? feature)
         {
             Random rand = new Random();
             string[] styleList = ["style1", "style2", "style3"];
-                Style = styleList[rand.Next(styleList.Length)];
-                X = building.behaviour.xLoc;
-                Y = building.behaviour.yLoc;
-            
+            Style = styleList[rand.Next(styleList.Length)];
+            if (feature != null)
+            {
+                switch (feature.buildingColor)
+                {
+                    case BuildingColors.Red:
+                        Style = "style1";
+                        break;
+                    case BuildingColors.BLue:
+                        Style = "style2";
+                        break;
+                    case BuildingColors.Grey:
+                        Style = "style3";
+                        break;
+                    default:
+                        Style = "style1";
+                        break;
+                }
+            }
+
+            X = building.behaviour.xLoc;
+            Y = building.behaviour.yLoc;
+
         }
     }
     public class SVGs
@@ -46,18 +67,21 @@ namespace SciFiSim.Assets
             "<script> function enRedden(){ moveCircle(); document.getElementById('buttonman').setAttribute('style','background-color:red');}</script>\"" +
             "+</body></html>";
         }
-        public static string GetGridWithHouses(int svgWidth, int townSize, HouseDrawObject[] houses, PersonEntity[]? people = null)
+        public static string GetFullSvg(int svgWidth, int townSize, HouseDrawObject[] houses, PersonEntity[]? people = null, TownCell[,]? townCells = null)
         {
             List<string> returnSvgs = new List<string>();
             int cellSize = svgWidth / townSize;
             returnSvgs.Add(SVGs.GetTownGrid(svgWidth, townSize));
             returnSvgs.Add(SVGs.GetHouseOnTownCell(svgWidth, cellSize, houses));
             if (people != null) returnSvgs.Add(SVGs.GetPeople(svgWidth, townSize, people));
+            if (people != null && townCells != null) returnSvgs.Add(SVGs.DrawTownCell(townCells, cellSize, svgWidth));
             string returnText = "<html><head> <meta http-equiv=\"x-ua-compatible\" content=\"IE=11\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"> <title>SVG sample</title> <style type=\"text/css\"> </style>\r\n</head>" +
             "<body><div>";
             returnText += returnSvgs[0];
             returnText += returnSvgs[1];
             if (people != null) returnText += returnSvgs[2];
+            if (townCells != null) returnText += returnSvgs[3];
+            
             returnText += "</div></body></hml>";
             return returnText;
 
@@ -72,11 +96,11 @@ namespace SciFiSim.Assets
             {
 
                 /*Skin */
-                var SkinType =  "Assets\\People\\Skin"+person.personStyle.skinColor.skinType.ToString() + ".png";
+                var SkinType = "Assets\\People\\Skin" + person.personStyle.skinColor.skinType.ToString() + ".png";
                 svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
                     $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, SkinType)}\" width=\"{cellWidth}\" height=\"{cellWidth}\"/>";
                 /*Eyes */
-                var EyeType = "Assets\\People\\Eyes" + person.personStyle.eyes.eyeType.ToString()+".png";
+                var EyeType = "Assets\\People\\Eyes" + person.personStyle.eyes.eyeType.ToString() + ".png";
 
                 var fileExsists = System.IO.File.Exists($"{Path.Combine(Environment.CurrentDirectory, EyeType)}");
                 var fileLocation = $"{Path.Combine(Environment.CurrentDirectory, EyeType)}";
@@ -117,6 +141,28 @@ namespace SciFiSim.Assets
             for (int y = 0; y < svgWidth; y += cellWidth)
             {
                 svg += $"<line x1=\"0\" y1=\"{y}\" x2=\"{svgWidth}\" y2=\"{y}\" stroke=\"black\" />";
+            }
+
+            // Close SVG tag
+            svg += "</svg>";
+
+            return svg;
+        }
+
+        public static string DrawTownCell(TownCell[,] townCells, int cellSize, int svgSize)
+        {
+            // Define SVG header
+            string svg = $"<svg width=\"{svgSize}\" height=\"{svgSize}\" style = \"position:absolute\">";
+            for(int x = 0;x< townCells.GetLength(0); x++)
+            {
+                for (int y = 0; y < townCells.GetLength(0); y++)
+                {
+                    if (townCells[x, y].entitiesComingHere > 0)
+                    {
+                        svg += $"<line x1 = \"{x * cellSize}\" y1 = \"{y * cellSize}\" x2 = \"{(x * cellSize) + cellSize}\" y2 = \"{(y * cellSize) + cellSize}\" stroke = \"red\" stroke - width = \"2\" />";
+                        svg += $"<line x1 = \"{(x * cellSize) + cellSize}\" y1 = \"{y * cellSize}\" x2 = \"{x * cellSize}\" y2 = \"{(y * cellSize) + cellSize}\" stroke = \"red\" stroke - width = \"2\" />";
+                    }
+                }
             }
 
             // Close SVG tag

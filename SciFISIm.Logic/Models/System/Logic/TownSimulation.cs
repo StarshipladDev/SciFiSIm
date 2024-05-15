@@ -63,8 +63,25 @@ namespace SciFiSim.Logic.Models.System.Logic
             Random rand = new Random();
             persons.ForEach(person =>
             {
+
+                /* Random movements */
+                /*
                 TownCell cellToMoveTo = person.movements.currentCell.adjacentCells[rand.Next(person.movements.currentCell.adjacentCells.Count())];
                 person.movements.MoveToCell(cellToMoveTo);
+                */
+                //Randomzie to stop gridlock
+                if(rand.Next(5) < 3)
+                {
+                    TownCell? newCell = person.movements.MoveEntityTowardsTarget(this.town.townCells);
+                    if (newCell != null)
+                    {
+
+                        person.movements.currentCell.RemoveTempEntity();
+                        person.movements.MoveToCell(newCell);
+                        newCell.temporaryEntityOnSquare = person;
+                    }
+                }
+                
             });
         }
     }

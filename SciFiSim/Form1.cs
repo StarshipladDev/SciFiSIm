@@ -95,11 +95,27 @@ namespace SciFiSim
                 "Dalia Al-Saad",
                 "Samir Zahedi"
             };
-
+            Random personCellPicker = new Random();
             List<PersonEntity> people = new List<PersonEntity>();
             foreach (string name in listOfNames)
             {
-                people.Add(new PersonEntity(Guid.NewGuid(), name));
+                PersonEntity newPerson = new PersonEntity(Guid.NewGuid(), name);
+                people.Add(newPerson);
+
+                newPerson.movements.listOfFutureMovements.Push(
+                    town.townCells[
+                        personCellPicker.Next(Town.TOWNCELLSIZE),
+                        personCellPicker.Next(Town.TOWNCELLSIZE)
+                   ]
+
+                );
+                newPerson.movements.listOfFutureMovements.Push(
+                    town.townCells[
+                        personCellPicker.Next(Town.TOWNCELLSIZE),
+                        personCellPicker.Next(Town.TOWNCELLSIZE)
+                   ]
+
+                );
             }
             List<BuildingEntity> buildings = new List<BuildingEntity>();
             for (int i = 0; i < 10; i++)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SciFiSim.Logic.Models.Entities.Root;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace SciFiSim.Logic.Models.Entities.Town
         public bool movable = true;
         public List<TownCell> adjacentCells = new List<TownCell>();
         public int x, y;
+        public Entity? permentantEntityOnSquare;
+        public Entity? temporaryEntityOnSquare;
+        public Entity? tertiaryEntityOnSquare;
+        public int entitiesComingHere = 0;
         public TownCell(List<TownCell> adjacentCells, int x, int y) {
             this.adjacentCells = adjacentCells;
             this.id = Guid.NewGuid();
@@ -40,6 +45,18 @@ namespace SciFiSim.Logic.Models.Entities.Town
                     }
                 }
             }
+        }
+        public void SetPermenantEntity(Entity entity)
+        {
+            this.permentantEntityOnSquare = entity;
+        }
+        public void SetTempEntity(Entity entity)
+        {
+            this.temporaryEntityOnSquare = entity;
+        }
+        public void RemoveTempEntity()
+        {
+            this.temporaryEntityOnSquare = null;
         }
         public override string ToString()
         {

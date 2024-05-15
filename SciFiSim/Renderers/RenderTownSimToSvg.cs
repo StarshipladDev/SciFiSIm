@@ -15,9 +15,9 @@ namespace SciFiSim.Renderers
             List<HouseDrawObject> houseList = new List<HouseDrawObject>();
             simulation.buildings.ForEach(building =>
             {
-                houseList.Add(new HouseDrawObject(building));
+                houseList.Add(new HouseDrawObject(building,building.building.color));
             });
-            return SVGs.GetGridWithHouses(svgSize, simulation.town.townCells.GetLength(0), houseList.ToArray(), simulation.persons.ToArray());
+            return SVGs.GetFullSvg(svgSize, simulation.town.townCells.GetLength(0), houseList.ToArray(), simulation.persons.ToArray(),simulation.town.townCells);
         }
     }
 }

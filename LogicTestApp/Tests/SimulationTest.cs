@@ -1,4 +1,5 @@
-﻿using SciFiSim.Logic.Models.Entities.Root;
+﻿using SciFiSim.Logic.Models.Entities.People;
+using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
 using SciFiSim.Logic.Models.System.Logic;
 using System;
@@ -37,9 +38,30 @@ namespace LogicTestApp.Tests
             };
 
             List<PersonEntity> people = new List<PersonEntity>();
+            Random personCellPicker = new Random();
             foreach (string name in listOfNames)
             {
-                people.Add(new PersonEntity(Guid.NewGuid(),name));
+                PersonEntity newPerson = new PersonEntity(Guid.NewGuid(), name);
+                people.Add(newPerson);
+                newPerson.movements.listOfFutureMovements.Push(
+                    town.townCells[
+                        personCellPicker.Next(Town.TOWNCELLSIZE),
+                        personCellPicker.Next(Town.TOWNCELLSIZE)
+                   ]
+
+                );
+                newPerson.movements.listOfFutureMovements.Push(
+                    town.townCells[
+                        personCellPicker.Next(Town.TOWNCELLSIZE),
+                        personCellPicker.Next(Town.TOWNCELLSIZE)
+                   ]
+                );
+            }
+            foreach(var person in people){
+                foreach (var item in person.movements.listOfFutureMovements)
+                {
+                    Console.Write($"{person.personStyle.firstName} has movements {item}");
+                }
             }
             List<BuildingEntity> buildings = new List<BuildingEntity>();
             for (int i = 0; i< 10; i++)
@@ -47,7 +69,13 @@ namespace LogicTestApp.Tests
                 buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Places.BuildingBehaviour(false,0,0)));
             }
             Simulation simulation = new Simulation(town, people, buildings);
-            simulation.RunSimulation(timeList.ToList(),null);
+            simulation.RunSimulation(timeList.ToList(), (simulation) => { 
+                simulation.persons.ForEach((PersonEntity person) => {
+                    Console.WriteLine($"Person {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");
+                    Console.WriteLine("Target cells size for them is :"+ person.movements.listOfFutureMovements.Count());
+
+                }); 
+            });
 
         }
 
