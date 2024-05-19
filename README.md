@@ -25,18 +25,18 @@ SVG code to render assets within c# form
 
 **CURRENT - 19/05/24 , click handlers**
 
-![ALt text](/Blackboard/README1.PNG)
+![ALt text](/Blackboard/README1.png)
 
 **11/04/24, Planning**
 
-![ALt text](/Blackboard/Plan1.JPG)
+![ALt text](/Blackboard/Plan1.jpg)
 
 
 ## Latest Build
 
 *19/05/24 - Click handling*
 
-![ALt text](/Blackboard/README1.PNG)
+![ALt text](/Blackboard/README1.png)
 
 ## Latest Update Notes:
 
@@ -58,7 +58,7 @@ SVG code to render assets within c# form
 
 Updated code to allow clicking of SVG to dispaly overlaid handcuff animations
 
-![ALt text](/Blackboard/README1.PNG)
+![ALt text](/Blackboard/README1.png)
 
 ## Next Build
 
