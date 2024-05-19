@@ -1,4 +1,5 @@
-﻿using SciFiSim.Logic.Models.Entities.Root;
+﻿using SciFiSim.Logic.Models.Entities.Overlay.Explosion;
+using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,15 @@ namespace SciFiSim.Logic.Models.System.Logic
         public Town town;
         public List<PersonEntity> persons;
         public List<BuildingEntity> buildings;
+        public List<OverlayEntity> overlays;
+        public PersonEntity terrorist;
 
         public TownSimulation(Town town, List<PersonEntity> people, List<BuildingEntity> buildings)
         {
             this.town = town;
             this.persons = people;
             this.buildings = buildings;
+            this.overlays = new List<OverlayEntity>();
         }
         public void SetStartLocation()
         {
@@ -32,6 +36,53 @@ namespace SciFiSim.Logic.Models.System.Logic
             {
                 building.behaviour.xLoc = rand.Next(town.townCells.GetLength(0));
                 building.behaviour.yLoc = rand.Next(town.townCells.GetLength(0));
+            });
+        }
+        public void CreateTerrorist()
+        {
+            Random rand = new Random();
+            PersonEntity badPerson = this.persons[rand.Next(this.persons.Count)];
+            this.terrorist = badPerson;
+            badPerson.terroristBehaviour = new Behaviours.TerroristBehaviour();
+            int buildingIngredient = rand.Next(this.buildings.Count);
+            badPerson.terroristBehaviour.ingredientBuildingCell =
+                this.town.townCells[this.buildings[buildingIngredient].behaviour.xLoc, this.buildings[buildingIngredient].behaviour.yLoc];
+
+            int buildingTarget = (buildingIngredient + 1) % this.buildings.Count;
+            badPerson.terroristBehaviour.targetBuildingCell =
+                this.town.townCells[this.buildings[buildingTarget].behaviour.xLoc, this.buildings[buildingTarget].behaviour.yLoc];
+            badPerson.movements.listOfFutureMovements = new Stack<TownCell>();
+            badPerson.movements.listOfFutureMovements.Push(badPerson.terroristBehaviour.targetBuildingCell);
+            badPerson.movements.listOfFutureMovements.Push(badPerson.terroristBehaviour.ingredientBuildingCell);
+
+        }
+        public void SetOffExplosion(int x, int y)
+        {
+            this.overlays.Add(new OverlayEntity{
+                overlayItem = new Explosion
+                {
+                },
+                positionx = x,
+                positiony = y
+            });
+        }
+        public void UpdateOverlayFrames()
+        {
+            int currentTick = 0;
+            List<int> indexToDeleteList = new List<int>();
+            this.overlays.ForEach((overlay) => {
+                if (overlay.overlayItem.currentFrame == overlay.overlayItem.frameTotal)
+                {
+                    indexToDeleteList.Add(currentTick);
+                }
+                else
+                {
+                    overlay.overlayItem.currentFrame++;
+                }
+                currentTick++;
+            });
+            indexToDeleteList.ForEach((index) => {
+                overlays.RemoveAt(index);
             });
         }
         public void AssignGoals()
@@ -79,10 +130,19 @@ namespace SciFiSim.Logic.Models.System.Logic
                         person.movements.currentCell.RemoveTempEntity();
                         person.movements.MoveToCell(newCell);
                         newCell.temporaryEntityOnSquare = person;
+                        person.movements.AddNewRandomTargetCellIfStatic(this.town.townCells,rand);
                     }
                 }
-                
             });
+            if(
+                this.overlays.FindAll((x) => x.overlayItem.type == "Explosion").Count == 0 &&
+                this.terrorist != null && 
+                this.terrorist.movements.currentCell == this.terrorist.terroristBehaviour.targetBuildingCell)
+            {
+                SetOffExplosion(this.terrorist.movements.currentCell.x, this.terrorist.movements.currentCell.y);
+            }
+            //Deal with animations
+            UpdateOverlayFrames();
         }
     }
 }

@@ -17,7 +17,13 @@ namespace SciFiSim.Renderers
             {
                 houseList.Add(new HouseDrawObject(building,building.building.color));
             });
-            return SVGs.GetFullSvg(svgSize, simulation.town.townCells.GetLength(0), houseList.ToArray(), simulation.persons.ToArray(),simulation.town.townCells);
+            return SVGs.GetFullSvg(svgSize, 
+                simulation.town.townCells.GetLength(0), 
+                true,
+                houseList.ToArray(),
+                simulation.persons.ToArray(),
+                simulation.town.townCells, 
+                simulation.overlays.ToArray());
         }
     }
 }

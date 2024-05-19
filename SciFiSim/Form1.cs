@@ -6,13 +6,18 @@ using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
 using SciFiSim.Logic.Models.System.Logic;
 using SciFiSim.Logic.OpenAI.Replies;
+using SciFiSim.Logic.Test;
 using SciFiSim.Renderers;
+using SciFiSim.Utility;
 using System.Net.Http;
+using System.Windows.Forms;
 
 namespace SciFiSim
 {
     public partial class Form1 : Form
     {
+        private WebBrowser webBrowser;
+        private SVGClickHandler svgClickHandler;
         public Form1()
         {
             //Textbox
@@ -22,8 +27,9 @@ namespace SciFiSim
 
 
             //Webbrowser
+
             string htmlText = SVGs.GetSmiley(true);
-            WebBrowser webBrowser = (WebBrowser)HTMLBox.GetHTMLBox(htmlText);
+            this.webBrowser = (WebBrowser)HTMLBox.GetHTMLBox(htmlText);
             WebBrowser clueBrowser = (WebBrowser)HTMLBox.GetHTMLBox("div");
             webBrowser.Location = new Point(this.Location.X + 50, this.Location.Y + 150);
             webBrowser.Size = new Size(300, 300);
@@ -60,6 +66,7 @@ namespace SciFiSim
                 clueBrowser.Document.Write(htmlText);
             };
 
+
             Controls.Add(textbox);
             Controls.Add(webBrowser);
             Controls.Add(clueBrowser);
@@ -69,7 +76,6 @@ namespace SciFiSim
             InitializeComponent();
             webBrowser.Refresh();
             clueBrowser.Refresh();
-
 
 
             /* Logic handling */
@@ -120,10 +126,15 @@ namespace SciFiSim
             List<BuildingEntity> buildings = new List<BuildingEntity>();
             for (int i = 0; i < 10; i++)
             {
-                buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Places.BuildingBehaviour(false, 0, 0)));
+                buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Behaviours.BuildingBehaviour(false, 0, 0)));
             }
+            int frameCount = 0;
             Simulation simulation = new Simulation(town, people, buildings);
-            simulation.RunSimulation(timeList.ToList(), async (simulation) => { 
+
+            this.svgClickHandler = new SVGClickHandler(webBrowser, textbox, 250, simulation);
+            webBrowser.DocumentCompleted += svgClickHandler.WebBrowser_DocumentCompleted;
+            simulation.RunSimulation(timeList.ToList(), async (simulation) => {
+                frameCount++;
                 string newHtmlText = renderer.RenderSVGFromTow(simulation,250);
                 if (webBrowser.InvokeRequired)
                 {
@@ -134,11 +145,13 @@ namespace SciFiSim
                             webBrowser.Document.Write(newHtmlText);
                             webBrowser.Refresh();
                         }
+
+                        textbox.Text = newHtmlText;
                     }));
                 }
                 else
                 {
-                    if (webBrowser.Document != null)
+                    if (webBrowser!= null && webBrowser.Document != null)
                     {
                         webBrowser.Document.Write(newHtmlText);
                         webBrowser.Refresh();

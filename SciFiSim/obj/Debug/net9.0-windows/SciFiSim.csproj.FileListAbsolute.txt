@@ -62,3 +62,16 @@ C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\People\Ski
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\People\SkinDark.png
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\People\SkinLight.png
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\People\SkinTan.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Explosion\Explosion1.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Explosion\Explosion2.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Explosion\Explosion3.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Explosion\Explosion4.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Explosion\Explosion5.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Explosion\Explosion6.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Explosion\Explosion7.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff1.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff2.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff3.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff4.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff5.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff6.png

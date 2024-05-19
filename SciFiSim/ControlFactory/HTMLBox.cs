@@ -1,4 +1,5 @@
 ﻿using SciFiSim.HTMLTemplates;
+using SciFiSim.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,22 @@ namespace SciFiSim.ControlFactory
 {
     public class HTMLBox
     {
-        public static Control GetHTMLBox(string htmlContent)
+        public static Control GetHTMLBox(string htmlContent, ScriptManager? scriptManager = null)
         {
-            WebBrowser webBrowser = new WebBrowser();
+            WebBrowser webBrowser;
+            if (scriptManager != null)
+            {
+                webBrowser = new WebBrowser()
+                {
+                    Dock = DockStyle.Fill,
+                    ObjectForScripting = scriptManager
+                };
+            }
+            else
+            {
+                webBrowser = new WebBrowser();
+            }
+            
            //webBrowser.Navigate("www.facebook.com");
             webBrowser.DocumentText = htmlContent;
             webBrowser.Document.OpenNew(true);

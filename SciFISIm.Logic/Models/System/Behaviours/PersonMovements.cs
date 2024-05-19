@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SciFiSim.Logic.Models.System.Places
+namespace SciFiSim.Logic.Models.System.Behaviours
 {
     public class PersonMovements
     {
@@ -28,6 +28,12 @@ namespace SciFiSim.Logic.Models.System.Places
             if (cellMovedTo.id == targetCell.id && listOfFutureMovements.Count > 0)
             {
                 UpdateTarget();
+            }
+        }
+        public void AddNewRandomTargetCellIfStatic(TownCell[,] townCells, Random rand)
+        {
+            if(this.listOfFutureMovements.Count == 0) {
+                this.listOfFutureMovements.Push(townCells[rand.Next(townCells.GetLength(0)), rand.Next(townCells.GetLength(0))]);
             }
         }
         public void UpdateTarget()

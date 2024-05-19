@@ -66,14 +66,24 @@ namespace LogicTestApp.Tests
             List<BuildingEntity> buildings = new List<BuildingEntity>();
             for (int i = 0; i< 10; i++)
             {
-                buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Places.BuildingBehaviour(false,0,0)));
+                buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Behaviours.BuildingBehaviour(false,0,0)));
             }
             Simulation simulation = new Simulation(town, people, buildings);
             simulation.RunSimulation(timeList.ToList(), (simulation) => { 
                 simulation.persons.ForEach((PersonEntity person) => {
                     Console.WriteLine($"Person {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");
                     Console.WriteLine("Target cells size for them is :"+ person.movements.listOfFutureMovements.Count());
+                    if(person.terroristBehaviour != null)
+                    {
+                        Console.WriteLine($"Person {person.personStyle.firstName} is terrorist, going to ");
+                        Console.Write($"{person.terroristBehaviour.targetBuildingCell}");
+                        Console.Write($"from ingredient cell {person.terroristBehaviour.ingredientBuildingCell}");
 
+                    }
+                    if(simulation.overlays.Count > 0)
+                    {
+                        Console.WriteLine("Bomb went off at " + simulation.overlays[0].positionx+ "," + simulation.overlays[0].positiony);
+                    }
                 }); 
             });
 

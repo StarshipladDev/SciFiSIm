@@ -23,6 +23,7 @@ namespace SciFiSim.Logic.Models.System.Logic
             {
                 this.simulation = new TownSimulation(town, people, buildings);
                 this.simulation.SetStartLocation();
+                this.simulation.CreateTerrorist();
             }
         }
         public void RunSimulation(List<Time> timeSlots, Action<TownSimulation> actionToPreformOnTick)

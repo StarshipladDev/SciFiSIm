@@ -1,14 +1,19 @@
 ﻿using SciFiSim.Logic.Models.Entities.Building;
+using SciFiSim.Logic.Models.Entities.Overlay.Explosion;
 using SciFiSim.Logic.Models.Entities.People;
 using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
+using SciFiSim.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SciFiSim.Assets
 {
@@ -67,7 +72,16 @@ namespace SciFiSim.Assets
             "<script> function enRedden(){ moveCircle(); document.getElementById('buttonman').setAttribute('style','background-color:red');}</script>\"" +
             "+</body></html>";
         }
-        public static string GetFullSvg(int svgWidth, int townSize, HouseDrawObject[] houses, PersonEntity[]? people = null, TownCell[,]? townCells = null)
+        public static string GetFullSvg(
+            int svgWidth,
+            int townSize,
+            bool drawSVGScript,
+            HouseDrawObject[] houses,
+            PersonEntity[]? people = null,
+            TownCell[,]? townCells = null,
+            OverlayEntity[]? explosions = null
+            
+        )
         {
             List<string> returnSvgs = new List<string>();
             int cellSize = svgWidth / townSize;
@@ -75,18 +89,19 @@ namespace SciFiSim.Assets
             returnSvgs.Add(SVGs.GetHouseOnTownCell(svgWidth, cellSize, houses));
             if (people != null) returnSvgs.Add(SVGs.GetPeople(svgWidth, townSize, people));
             if (people != null && townCells != null) returnSvgs.Add(SVGs.DrawTownCell(townCells, cellSize, svgWidth));
+            if (people != null && townCells != null && explosions != null && explosions.Count() > 0) returnSvgs.Add(SVGs.DrawOverlays(explosions, cellSize, svgWidth, townCells.GetLength(0)));
             string returnText = "<html><head> <meta http-equiv=\"x-ua-compatible\" content=\"IE=11\"> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"> <title>SVG sample</title> <style type=\"text/css\"> </style>\r\n</head>" +
             "<body><div>";
             returnText += returnSvgs[0];
             returnText += returnSvgs[1];
             if (people != null) returnText += returnSvgs[2];
             if (townCells != null) returnText += returnSvgs[3];
-            
-            returnText += "</div></body></hml>";
+            if (explosions != null && explosions.Count() > 0) returnText += returnSvgs[4];
+
+            returnText += "</div>";
+            returnText += "</body></hml>";
             return returnText;
-
         }
-
         public static string GetPeople(int svgWidth, int townSize, PersonEntity[] people)
         {
             int cellWidth = svgWidth / townSize;
@@ -126,7 +141,7 @@ namespace SciFiSim.Assets
         {
             int cellWidth = svgWidth / townSize;
             // Define SVG header
-            string svg = $"<svg width=\"{svgWidth}\" height=\"{svgWidth}\" style = \"position:absolute\">";
+            string svg = $"<svg id = \"gridSVG\" width=\"{svgWidth}\" height=\"{svgWidth}\" style = \"position:absolute\">";
 
             // Add dust-covered square
             svg += $"<rect width=\"{svgWidth}\" height=\"{svgWidth}\" fill=\"lightgrey\" />";
@@ -153,7 +168,7 @@ namespace SciFiSim.Assets
         {
             // Define SVG header
             string svg = $"<svg width=\"{svgSize}\" height=\"{svgSize}\" style = \"position:absolute\">";
-            for(int x = 0;x< townCells.GetLength(0); x++)
+            for (int x = 0; x < townCells.GetLength(0); x++)
             {
                 for (int y = 0; y < townCells.GetLength(0); y++)
                 {
@@ -163,6 +178,24 @@ namespace SciFiSim.Assets
                         svg += $"<line x1 = \"{(x * cellSize) + cellSize}\" y1 = \"{y * cellSize}\" x2 = \"{x * cellSize}\" y2 = \"{(y * cellSize) + cellSize}\" stroke = \"red\" stroke - width = \"2\" />";
                     }
                 }
+            }
+
+            // Close SVG tag
+            svg += "</svg>";
+
+            return svg;
+        }
+        public static string DrawOverlays(OverlayEntity[] overlays, int cellSize, int svgSize, int townSizeInCells)
+        {
+            // Define SVG header
+            string svg = $"<svg width=\"{svgSize}\" height=\"{svgSize}\" style = \"position:absolute\">";
+            foreach (OverlayEntity overlay in overlays)
+            {
+
+                var overlayElement = "Assets\\"+overlay.overlayItem.type+ "\\"+overlay.overlayItem.type+overlay.overlayItem.currentFrame +".png";
+                svg += $"<image x=\"{overlay.positionx * cellSize}\" y=\"{overlay.positiony * cellSize}\"" +
+                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, overlayElement)}\" width=\"{cellSize}\"  height=\"{cellSize}\"/>";
+
             }
 
             // Close SVG tag
@@ -183,7 +216,7 @@ namespace SciFiSim.Assets
                 string houseSvg = DrawHouse(houseStyle, x, y, cellSize);
                 svg += houseSvg;
             }
-
+            svg += "</svg>";
             return svg;
         }
 

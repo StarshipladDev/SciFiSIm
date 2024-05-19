@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SciFiSim.Logic.Models.System.Places
+namespace SciFiSim.Logic.Models.System.Behaviours
 {
     public class BuildingBehaviour
     {

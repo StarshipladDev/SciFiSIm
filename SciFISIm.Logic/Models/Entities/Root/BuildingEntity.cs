@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using SciFiSim.Logic.Models.Entities.Building;
-using SciFiSim.Logic.Models.System.Places;
+using SciFiSim.Logic.Models.System.Behaviours;
 
 namespace SciFiSim.Logic.Models.Entities.Root
 {
