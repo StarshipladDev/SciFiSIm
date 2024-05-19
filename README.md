@@ -1,6 +1,6 @@
 # Anti-Terror-Control-Platform -> Multi-minigame Form Simulating '24'-esque anti terror operations
 
-![Alt text]("Blackboard/README1.png")
+![Alt text]("/Blackboard/README1.png")
 
 ## Notes/Know Bugs:
 
