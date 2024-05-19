@@ -1,6 +1,6 @@
 # Anti-Terror-Control-Platform -> Multi-minigame Form Simulating '24'-esque anti terror operations
 
-![Alt text]("/Blackboard/SamplePathfind.gif")
+![Alt text](/Blackboard/SamplePathfind.gif)
 
 ## Notes/Know Bugs:
 
@@ -25,18 +25,18 @@ SVG code to render assets within c# form
 
 **CURRENT - 19/05/24 , click handlers**
 
-![ALt text]("/Blackboard/README1.PNG")
+![ALt text](/Blackboard/README1.PNG)
 
 **11/04/24, Planning**
 
-![ALt text]("/Blackboard/Plan1.JPG")
+![ALt text](/Blackboard/Plan1.JPG)
 
 
 ## Latest Build
 
 *19/05/24 - Click handling*
 
-![ALt text]("/Blackboard/README1.PNG")
+![ALt text](/Blackboard/README1.PNG)
 
 ## Latest Update Notes:
 
@@ -58,7 +58,7 @@ SVG code to render assets within c# form
 
 Updated code to allow clicking of SVG to dispaly overlaid handcuff animations
 
-![ALt text]("/Blackboard/README1.PNG")
+![ALt text](/Blackboard/README1.PNG)
 
 ## Next Build
 
