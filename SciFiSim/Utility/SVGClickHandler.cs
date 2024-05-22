@@ -52,18 +52,31 @@ namespace SciFiSim.Utility
                 var y = e.ClientMousePosition.Y - svgRect.Top;
                 decimal xMultiplier = (decimal)x / (decimal)this.SVGSize;
                 decimal yMultiplier = (decimal)y / (decimal)this.SVGSize;
+                int xCoOrd = (int)(xMultiplier * simulation.simulation.town.townCells.GetLength(0));
+                int yCoOrd = (int)(yMultiplier * simulation.simulation.town.townCells.GetLength(0));
                 // Display the click coordinates
-                MessageBox.Show($"SVG clicked at: ({x}, {y})");
+               // MessageBox.Show($"SVG clicked at: ({x}, {y})");
                 this.textBox.Text = $"SVG clicked at: ({x}, {y})";
                 this.simulation.simulation.overlays.Add(
                     new Logic.Models.Entities.Root.OverlayEntity()
                     {
                         overlayItem = new Cuff(),
-                        positionx = (int)(xMultiplier * simulation.simulation.town.townCells.GetLength(0)),
-                        positiony = (int)(yMultiplier * simulation.simulation.town.townCells.GetLength(0)),
+                        positionx = xCoOrd,
+                        positiony = yCoOrd,
 
                     }
                     );
+                if(
+                    this.simulation.simulation.terrorist.movements.currentCell.y == yCoOrd &&
+                    this.simulation.simulation.terrorist.movements.currentCell.x == xCoOrd
+                    )
+                {
+                    this.simulation.simulation.terrorist.movements.canMove = false;
+                }
+                else
+                {
+                    this.simulation.simulation.overlays.Last().overlayItem.endAnimationOnEnd = true;
+                }
                 // Logic to modify the SVG based on click coordinates can be added here
             }
         }

@@ -14,35 +14,41 @@ namespace SciFiSim.Logic.Models.System.Behaviours
         public List<TownCell> pastCells = new List<TownCell>();
         public TownCell targetCell = null;
         public Stack<TownCell> listOfFutureMovements;
+        public bool canMove = true;
         public PersonMovements()
         {
             this.listOfFutureMovements = new Stack<TownCell>();
         }
-        public void MoveToCell(TownCell cellMovedTo)
+        public void MoveToCell(TownCell cellMovedTo, PersonEntity terrorsit = null)
         {
-            if (cellMovedTo.id != this.currentCell.id)
+            if (canMove)
             {
-                this.pastCells.Add(currentCell);
-                this.currentCell = cellMovedTo;
+                if (cellMovedTo.id != this.currentCell.id)
+                {
+                    this.pastCells.Add(currentCell);
+                    this.currentCell = cellMovedTo;
+                }
+                if (cellMovedTo.id == targetCell.id && listOfFutureMovements.Count > 0)
+                {
+                    UpdateTarget(terrorsit != null);
+                }
             }
-            if (cellMovedTo.id == targetCell.id && listOfFutureMovements.Count > 0)
-            {
-                UpdateTarget();
-            }
+
         }
         public void AddNewRandomTargetCellIfStatic(TownCell[,] townCells, Random rand)
         {
-            if(this.listOfFutureMovements.Count == 0) {
+            if (this.listOfFutureMovements.Count == 0)
+            {
                 this.listOfFutureMovements.Push(townCells[rand.Next(townCells.GetLength(0)), rand.Next(townCells.GetLength(0))]);
             }
         }
-        public void UpdateTarget()
+        public void UpdateTarget(bool assignTarget = false)
         {
             if (listOfFutureMovements != null && listOfFutureMovements.Count > 0)
             {
-                if (this.targetCell != null) this.targetCell.entitiesComingHere--;
+                if (this.targetCell != null && assignTarget) this.targetCell.entitiesComingHere--;
                 this.targetCell = listOfFutureMovements.Pop();
-                this.targetCell.entitiesComingHere++;
+                if( assignTarget ) this.targetCell.entitiesComingHere++;
             }
         }
         // Method to move an entity one step towards its target cell
@@ -59,7 +65,7 @@ namespace SciFiSim.Logic.Models.System.Behaviours
             // Calculate the direction towards the target cell
             int dx = 0;
             int dy = 0;
-            if(targetCell.x != currentCell.x)
+            if (targetCell.x != currentCell.x)
             {
                 dx = targetCell.x > currentCell.x ? 1 : -1;
             }

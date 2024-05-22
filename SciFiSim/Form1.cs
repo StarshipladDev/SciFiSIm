@@ -20,6 +20,13 @@ namespace SciFiSim
         private SVGClickHandler svgClickHandler;
         public Form1()
         {
+
+
+            string appName = System.IO.Path.GetFileName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+            using (var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION"))
+            {
+                key.SetValue(appName, 11001, Microsoft.Win32.RegistryValueKind.DWord);
+            }
             //Textbox
             TextBox textbox = (TextBox)EntityControl.GetEntityControl();
             textbox.Location = new Point(this.Location.X + 150, this.Location.Y + 50);
@@ -142,8 +149,8 @@ namespace SciFiSim
                     {
                         if (webBrowser.Document != null)
                         {
-                            webBrowser.Document.Write(newHtmlText);
-                            webBrowser.Refresh();
+                            webBrowser.DocumentText =newHtmlText;
+                            //webBrowser.Refresh();
                         }
 
                         textbox.Text = newHtmlText;

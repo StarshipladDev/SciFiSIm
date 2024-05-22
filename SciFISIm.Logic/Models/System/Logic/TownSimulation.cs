@@ -65,23 +65,30 @@ namespace SciFiSim.Logic.Models.System.Logic
                 positionx = x,
                 positiony = y
             });
+            this.buildings.Remove(this.buildings.Where( (building) => {
+                return building.behaviour.xLoc == x &&
+                building.behaviour.yLoc == y;
+            }).ToList()[0]);
         }
         public void UpdateOverlayFrames()
         {
             int currentTick = 0;
             List<int> indexToDeleteList = new List<int>();
             this.overlays.ForEach((overlay) => {
-                if (overlay.overlayItem.currentFrame == overlay.overlayItem.frameTotal)
+                if (
+                overlay.overlayItem.endAnimationOnEnd && 
+                overlay.overlayItem.currentFrame == overlay.overlayItem.frameTotal
+                )
                 {
                     indexToDeleteList.Add(currentTick);
                 }
-                else
+                else if (overlay.overlayItem.currentFrame < overlay.overlayItem.frameTotal)
                 {
                     overlay.overlayItem.currentFrame++;
                 }
                 currentTick++;
             });
-            indexToDeleteList.ForEach((index) => {
+            indexToDeleteList.OrderByDescending((x) => x).ToList().ForEach((index) => {
                 overlays.RemoveAt(index);
             });
         }
@@ -128,7 +135,7 @@ namespace SciFiSim.Logic.Models.System.Logic
                     {
 
                         person.movements.currentCell.RemoveTempEntity();
-                        person.movements.MoveToCell(newCell);
+                        person.movements.MoveToCell(newCell,this.terrorist);
                         newCell.temporaryEntityOnSquare = person;
                         person.movements.AddNewRandomTargetCellIfStatic(this.town.townCells,rand);
                     }
