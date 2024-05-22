@@ -30,14 +30,14 @@ namespace SciFiSim.Assets
             Y = y;
         }
 
-        public HouseDrawObject(Logic.Models.Entities.Root.BuildingEntity building, BuildingColor? feature)
+        public HouseDrawObject(Logic.Models.Entities.Root.BuildingEntity building)
         {
             Random rand = new Random();
             string[] styleList = ["style1", "style2", "style3"];
             Style = styleList[rand.Next(styleList.Length)];
-            if (feature != null)
+            if (building.building.color != null)
             {
-                switch (feature.buildingColor)
+                switch (building.building.color.buildingColor)
                 {
                     case BuildingColors.Red:
                         Style = "style1";
@@ -52,6 +52,11 @@ namespace SciFiSim.Assets
                         Style = "style1";
                         break;
                 }
+            }
+            else
+            {
+                Style = "style2";
+
             }
 
             X = building.behaviour.xLoc;
@@ -71,6 +76,13 @@ namespace SciFiSim.Assets
             "<script> function moveCircle(){ document.getElementById('circle').setAttribute('cy',70);}</script>\"" +
             "<script> function enRedden(){ moveCircle(); document.getElementById('buttonman').setAttribute('style','background-color:red');}</script>\"" +
             "+</body></html>";
+        }
+
+
+        public static string ConvertImageToBase64(string imagePath)
+        {
+            byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
+            return Convert.ToBase64String(imageBytes);
         }
         public static string GetFullSvg(
             int svgWidth,
@@ -104,31 +116,34 @@ namespace SciFiSim.Assets
         }
         public static string GetPeople(int svgWidth, int townSize, PersonEntity[] people)
         {
+            int animationDuration = 1000;
             int cellWidth = svgWidth / townSize;
             // Define SVG header
-            string svg = $"<svg width=\"{svgWidth}\" height=\"{svgWidth}\" style = \"position:absolute\">";
+            string svg = $"<svg width=\"{svgWidth}\" height=\"{svgWidth}\" style = \"position:absolute\"  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>";
             foreach (PersonEntity person in people)
             {
 
                 /*Skin */
                 var SkinType = "Assets\\People\\Skin" + person.personStyle.skinColor.skinType.ToString() + ".png";
                 svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
-                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, SkinType)}\" width=\"{cellWidth}\" height=\"{cellWidth}\"/>";
+                    $" xlink:href=\"data:image/png;base64,{SVGs.ConvertImageToBase64(Path.Combine(Environment.CurrentDirectory, SkinType))}\" width=\"{cellWidth}\" height=\"{cellWidth}\">" +
+                    $"<animateTransform attributeName=\"transform\" begin=\"0s\" dur=\"10s\" type=\"translate\" from=\"{person.movements.currentCell.x * cellWidth} {person.movements.currentCell.y * cellWidth}\" to=\"{person.movements.targetCell.x * cellWidth} {person.movements.targetCell.y * cellWidth}\" repeatCount=\"1\" /></image>";
                 /*Eyes */
                 var EyeType = "Assets\\People\\Eyes" + person.personStyle.eyes.eyeType.ToString() + ".png";
 
                 var fileExsists = System.IO.File.Exists($"{Path.Combine(Environment.CurrentDirectory, EyeType)}");
                 var fileLocation = $"{Path.Combine(Environment.CurrentDirectory, EyeType)}";
                 svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
-                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, EyeType)}\" width=\"{cellWidth}\"  height=\"{cellWidth}\"/>";
-                /*Mouth */
+                    $" xlink:href=\"data:image/png;base64,{SVGs.ConvertImageToBase64(Path.Combine(Environment.CurrentDirectory, EyeType))}\" width=\"{cellWidth}\"  height=\"{cellWidth}\">"+
+                    $"<animateTransform attributeName=\"transform\" begin=\"0s\" dur=\"10s\" type=\"translate\" from=\"{person.movements.currentCell.x * cellWidth} {person.movements.currentCell.y * cellWidth}\" to=\"{person.movements.targetCell.x * cellWidth} {person.movements.targetCell.y * cellWidth}\" repeatCount=\"1\" /></image>";                /*Mouth */
                 var MouthType = "Assets\\People\\Mouth" + person.personStyle.mouth.mouthType.ToString() + ".png";
                 svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
-                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, MouthType)}\" width=\"{cellWidth}\" height=\"{cellWidth}\"/>";
-                /*Hair */
+                    $" xlink:href=\"data:image/png;base64,{SVGs.ConvertImageToBase64(Path.Combine(Environment.CurrentDirectory, MouthType))}\" width=\"{cellWidth}\" height=\"{cellWidth}\">" +
+                    $"<animateTransform attributeName=\"transform\" begin=\"0s\" dur=\"10s\" type=\"translate\" from=\"{person.movements.currentCell.x * cellWidth} {person.movements.currentCell.y * cellWidth}\" to=\"{person.movements.targetCell.x * cellWidth} {person.movements.targetCell.y * cellWidth}\" repeatCount=\"1\" /></image>";                /*Hair */
                 var HairType = "Assets\\People\\Hair" + person.personStyle.hair.hairType.ToString() + ".png";
                 svg += $"<image x=\"{person.movements.currentCell.x * cellWidth}\" y=\"{person.movements.currentCell.y * cellWidth}\"" +
-                    $" xlink:href=\"{Path.Combine(Environment.CurrentDirectory, HairType)}\" width=\"{cellWidth}\"  height=\"{cellWidth}\"/>";
+                    $" xlink:href=\"data:image/png;base64,{SVGs.ConvertImageToBase64(Path.Combine(Environment.CurrentDirectory, HairType))}\" width=\"{cellWidth}\"  height=\"{cellWidth}\">" +
+                    $"<animateTransform attributeName=\"transform\" begin=\"0s\" dur=\"10s\" type=\"translate\" from=\"{person.movements.currentCell.x * cellWidth} {person.movements.currentCell.y * cellWidth}\" to=\"{person.movements.targetCell.x * cellWidth} {person.movements.targetCell.y * cellWidth}\" repeatCount=\"1\" /></image>";
             }
 
             // Close SVG tag

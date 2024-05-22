@@ -14,6 +14,7 @@ namespace SciFiSim.Logic.Models.Entities.Overlay.Cuff
             this.frameTotal = 6;
             this.currentFrame = 1;
             this.type = "Cuff";
+            this.endAnimationOnEnd = false;
         }
     }
 }

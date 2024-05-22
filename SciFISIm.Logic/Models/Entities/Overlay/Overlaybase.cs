@@ -12,5 +12,6 @@ namespace SciFiSim.Logic.Models.Entities.Overlay
         public int currentFrame = 0;
         public int frameTotal = 0;
         public string type = "";
+        public bool endAnimationOnEnd = true;
     }
 }

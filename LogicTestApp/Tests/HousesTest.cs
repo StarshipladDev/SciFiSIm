@@ -16,7 +16,7 @@ namespace LogicTestApp.Tests
             new HouseDrawObject("style3", 8, 1)
             ];
             string htmlDocumentText = "<html><head></head><body><div style = 'position:relative'>";
-                htmlDocumentText += SVGs.GetFullSvg(500, 10, houses);
+                htmlDocumentText += SVGs.GetFullSvg(500, 10, true,houses);
             htmlDocumentText += "</div></body></html>";
             Console.WriteLine(htmlDocumentText);
             Console.ReadLine();

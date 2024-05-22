@@ -29,7 +29,7 @@ namespace SciFiSim.Logic.Models.System.Logic
         public void RunSimulation(List<Time> timeSlots, Action<TownSimulation> actionToPreformOnTick)
         {
             this.timeSlots = timeSlots;
-            timer = new Timer(2000); // Set the interval to 2 seconds
+            timer = new Timer(3000); // Set the interval to 2 seconds
 
             // Subscribe to the Elapsed event
             timer.Elapsed += this.OnTick;
@@ -40,17 +40,11 @@ namespace SciFiSim.Logic.Models.System.Logic
 
             // Enable the timer
             timer.Enabled = true;
-
-            Console.WriteLine("Timer started. Press enter to exit.");
-            Console.ReadLine();
         }
         private void OnTick(Object source, ElapsedEventArgs e)
         {
             // Update the currentValue with the next item from the list
             currentTime = this.timeSlots[currentTimeIndex];
-
-            // Print the current value for demonstration
-            Console.WriteLine($"Current Value: {currentTime.timeName}");
 
             // Increment the index for the next call
             currentTimeIndex++;
