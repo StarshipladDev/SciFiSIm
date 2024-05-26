@@ -75,3 +75,9 @@ C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff3
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff4.png
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff5.png
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\Cuff\Cuff6.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Microsoft.Web.WebView2.Core.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Microsoft.Web.WebView2.WinForms.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Microsoft.Web.WebView2.Wpf.dll

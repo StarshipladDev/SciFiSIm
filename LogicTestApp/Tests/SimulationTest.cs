@@ -71,13 +71,18 @@ namespace LogicTestApp.Tests
             Simulation simulation = new Simulation(town, people, buildings);
             simulation.RunSimulation(timeList.ToList(), (simulation) => { 
                 simulation.persons.ForEach((PersonEntity person) => {
-                    Console.WriteLine($"Person {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");
+                    Console.WriteLine($"\nPerson {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");
                     Console.WriteLine("Target cells size for them is :"+ person.movements.listOfFutureMovements.Count());
                     if(person.terroristBehaviour != null)
                     {
                         Console.WriteLine($"Person {person.personStyle.firstName} is terrorist, going to ");
                         Console.Write($"{person.terroristBehaviour.targetBuildingCell}");
-                        Console.Write($"from ingredient cell {person.terroristBehaviour.ingredientBuildingCell}");
+                        int ingredientOrder = 0;
+                        person.terroristBehaviour.ingredientBuildingCells.ForEach((ingredientCell => {
+
+                            Console.Write($"\n ,  ingredient cell {ingredientOrder} : {ingredientCell}");
+                            ingredientOrder++;
+                        }));
 
                     }
                     if(simulation.overlays.Count > 0)

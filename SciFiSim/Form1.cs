@@ -5,6 +5,8 @@ using SciFiSim.Logic;
 using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
 using SciFiSim.Logic.Models.System.Logic;
+using SciFiSim.Logic.OpenAI.Prompts;
+using SciFiSim.Logic.OpenAI;
 using SciFiSim.Logic.OpenAI.Replies;
 using SciFiSim.Logic.Test;
 using SciFiSim.Renderers;
@@ -53,14 +55,7 @@ namespace SciFiSim
             openAIButton.Text = "Get Open AI Puzzle";
             openAIButton.Size = new Size(100, 50);
             openAIButton.Location = new Point(this.Location.X + 350, this.Location.Y + 100);
-            openAIButton.Click += async (sender, e) =>
-            {
-                // Perform actions when the button is clicked
-                Reply replyFromOpenAI = await SciFiSim.Logic.Test.OpenAITest.Main([]);
-                openAIText.Text = replyFromOpenAI.replyText;
-                clueBrowser.Document.Write(Grid.GetGrid(replyFromOpenAI.replyText));
-                clueBrowser.Refresh();
-            };
+            
 
             // Move SMiley Button
             Button moveSmileyButton = new Button();
@@ -165,6 +160,20 @@ namespace SciFiSim
                     }
                 }
             });
+
+            openAIButton.Click += async (sender, e) =>
+            {
+                // Perform actions when the button is clicked
+                Reply replyFromOpenAI = await OpenAIClient.GetPuzzleReply(new CoordinatePrompt(
+                    simulation.simulation.town.townCells.GetLength(0),
+                    simulation.simulation.persons,
+                    simulation.simulation.terrorist.movements.listOfFutureMovements.ToList()
+                    
+                ));
+                openAIText.Text = replyFromOpenAI.replyText;
+                clueBrowser.Document.Write(Grid.GetGrid(replyFromOpenAI.replyText));
+                clueBrowser.Refresh();
+            };
 
 
         }

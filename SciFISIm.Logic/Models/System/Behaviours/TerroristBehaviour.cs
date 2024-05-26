@@ -10,6 +10,17 @@ namespace SciFiSim.Logic.Models.System.Behaviours
     public class TerroristBehaviour
     {
         public TownCell targetBuildingCell;
-        public TownCell ingredientBuildingCell;
+        public List<TownCell> ingredientBuildingCells;
+        public int ingredientsNeeded = 0;
+        public int ingredientsAquired = 0;
+        public int nextTargetCellx = 0;
+        public int nextTargetCelly = 0;
+
+        public TerroristBehaviour(int ingredientsNeeded, int ingredientsAquired)
+        {
+            this.ingredientBuildingCells = new List<TownCell>();
+            this.ingredientsNeeded = ingredientsNeeded;
+            this.ingredientsAquired = ingredientsAquired;
+        }
     }
 }

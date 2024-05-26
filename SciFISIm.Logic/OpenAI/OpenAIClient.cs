@@ -22,7 +22,7 @@ namespace SciFiSim.Logic.OpenAI
             HttpClient client = new HttpClient();
             Config config = new Config();
             XmlDocument doc = new XmlDocument();
-            doc.Load("Credentials.config"); // Replace with the path to your XML file
+            doc.Load($"{Path.Combine(Environment.CurrentDirectory,"Credentials.config")}"); // Replace with the path to your XML file
 
             // Get the value of the 'openaikey' element
             XmlNode openaikeyNode = doc.SelectSingleNode("//openaikey");

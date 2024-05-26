@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "e3ZUjg2HmgiEH0oIG7exdjPyJoRMn/fx/HLz2DxuoJR8S9g3hrgjKCMSlB/gsqoJe4oqMIVa3FX1VWwyGfs8xQ==",
+  "dgSpecHash": "VhkCnX84ls4FDpfBMDClvR8VFtCLgDo/EDr4aYJBEyi6vDNxVaLXh0pRDbJcA/mqCfBzMt7Vz9Ltf5zx+DfGNA==",
   "success": true,
   "projectFilePath": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\SciFiSim.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Ozzy\\.nuget\\packages\\microsoft.web.webview2\\1.0.2478.35\\microsoft.web.webview2.1.0.2478.35.nupkg.sha512",
     "C:\\Users\\Ozzy\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []

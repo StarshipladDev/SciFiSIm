@@ -3,6 +3,7 @@ using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace SciFiSim.Logic.Models.System.Logic
         public List<BuildingEntity> buildings;
         public List<OverlayEntity> overlays;
         public PersonEntity terrorist;
+        private int IngredientBuildingsCount = 2;
 
         public TownSimulation(Town town, List<PersonEntity> people, List<BuildingEntity> buildings)
         {
@@ -40,43 +42,87 @@ namespace SciFiSim.Logic.Models.System.Logic
         }
         public void CreateTerrorist()
         {
+            List<int> availableBuildingIndexes = new List<int> { };
+            int buildingIndex = 0;
+            this.buildings.ForEach((building) =>
+            {
+                availableBuildingIndexes.Add(buildingIndex);
+                buildingIndex++;
+            });
             Random rand = new Random();
             PersonEntity badPerson = this.persons[rand.Next(this.persons.Count)];
             this.terrorist = badPerson;
-            badPerson.terroristBehaviour = new Behaviours.TerroristBehaviour();
-            int buildingIngredient = rand.Next(this.buildings.Count);
-            badPerson.terroristBehaviour.ingredientBuildingCell =
-                this.town.townCells[this.buildings[buildingIngredient].behaviour.xLoc, this.buildings[buildingIngredient].behaviour.yLoc];
+            badPerson.terroristBehaviour = new Behaviours.TerroristBehaviour(IngredientBuildingsCount, 0);
+            int possibleBuildingIndex = 0;
+            while (
+                badPerson.terroristBehaviour.ingredientBuildingCells.Count < IngredientBuildingsCount &&
+                badPerson.terroristBehaviour.ingredientBuildingCells.Count < this.buildings.Count - 2)
+            {
+                possibleBuildingIndex = availableBuildingIndexes[rand.Next(availableBuildingIndexes.Count)];
+                TownCell maybeIngredientCell = this.town.townCells[this.buildings[possibleBuildingIndex].behaviour.xLoc, this.buildings[possibleBuildingIndex].behaviour.yLoc];
+                if (!badPerson.terroristBehaviour.ingredientBuildingCells.Contains(maybeIngredientCell))
+                {
+                    badPerson.terroristBehaviour.ingredientBuildingCells.Add(
+                       maybeIngredientCell
+                    );
+                    availableBuildingIndexes.Remove(possibleBuildingIndex);
+                }
+            }
 
-            int buildingTarget = (buildingIngredient + 1) % this.buildings.Count;
+            possibleBuildingIndex = availableBuildingIndexes[rand.Next(availableBuildingIndexes.Count)];
+            TownCell maybeTargetCell = this.town.townCells[this.buildings[possibleBuildingIndex].behaviour.xLoc, this.buildings[possibleBuildingIndex].behaviour.yLoc];
+
+            while (badPerson.terroristBehaviour.ingredientBuildingCells.Contains(maybeTargetCell))
+            {
+                possibleBuildingIndex = rand.Next(this.buildings.Count);
+                maybeTargetCell = this.town.townCells[this.buildings[possibleBuildingIndex].behaviour.xLoc, this.buildings[possibleBuildingIndex].behaviour.yLoc];
+
+                availableBuildingIndexes.Remove(possibleBuildingIndex);
+            }
             badPerson.terroristBehaviour.targetBuildingCell =
-                this.town.townCells[this.buildings[buildingTarget].behaviour.xLoc, this.buildings[buildingTarget].behaviour.yLoc];
+               maybeTargetCell;
             badPerson.movements.listOfFutureMovements = new Stack<TownCell>();
             badPerson.movements.listOfFutureMovements.Push(badPerson.terroristBehaviour.targetBuildingCell);
-            badPerson.movements.listOfFutureMovements.Push(badPerson.terroristBehaviour.ingredientBuildingCell);
+            badPerson.terroristBehaviour.ingredientBuildingCells.ForEach((cell =>
+            {
+
+                badPerson.movements.listOfFutureMovements.Push(cell);
+            }));
+            var FirstTarget =  badPerson.movements.listOfFutureMovements.Pop();
+            badPerson.terroristBehaviour.nextTargetCellx = FirstTarget.x;
+            badPerson.terroristBehaviour.nextTargetCelly = FirstTarget.y;
+            badPerson.movements.listOfFutureMovements.Push(FirstTarget);
 
         }
         public void SetOffExplosion(int x, int y)
         {
-            this.overlays.Add(new OverlayEntity{
+            this.overlays.Add(new OverlayEntity
+            {
                 overlayItem = new Explosion
                 {
                 },
                 positionx = x,
                 positiony = y
             });
-            this.buildings.Remove(this.buildings.Where( (building) => {
+            var removeBUilding = this.buildings.Where((building) =>
+            {
                 return building.behaviour.xLoc == x &&
                 building.behaviour.yLoc == y;
-            }).ToList()[0]);
+            }).ToList();
+            if(removeBUilding.Count > 0)
+            {
+
+                this.buildings.Remove(removeBUilding[0]);
+            }
         }
         public void UpdateOverlayFrames()
         {
             int currentTick = 0;
             List<int> indexToDeleteList = new List<int>();
-            this.overlays.ForEach((overlay) => {
+            this.overlays.ForEach((overlay) =>
+            {
                 if (
-                overlay.overlayItem.endAnimationOnEnd && 
+                overlay.overlayItem.endAnimationOnEnd &&
                 overlay.overlayItem.currentFrame == overlay.overlayItem.frameTotal
                 )
                 {
@@ -88,7 +134,8 @@ namespace SciFiSim.Logic.Models.System.Logic
                 }
                 currentTick++;
             });
-            indexToDeleteList.OrderByDescending((x) => x).ToList().ForEach((index) => {
+            indexToDeleteList.OrderByDescending((x) => x).ToList().ForEach((index) =>
+            {
                 overlays.RemoveAt(index);
             });
         }
@@ -128,22 +175,41 @@ namespace SciFiSim.Logic.Models.System.Logic
                 person.movements.MoveToCell(cellToMoveTo);
                 */
                 //Randomzie to stop gridlock
-                if(rand.Next(5) < 3)
+                if (rand.Next(5) < 3)
                 {
                     TownCell? newCell = person.movements.MoveEntityTowardsTarget(this.town.townCells);
                     if (newCell != null)
                     {
 
                         person.movements.currentCell.RemoveTempEntity();
-                        person.movements.MoveToCell(newCell,this.terrorist);
+                        person.movements.MoveToCell(newCell, this.terrorist);
                         newCell.temporaryEntityOnSquare = person;
-                        person.movements.AddNewRandomTargetCellIfStatic(this.town.townCells,rand);
+                        person.movements.AddNewRandomTargetCellIfStatic(this.town.townCells, rand);
                     }
                 }
             });
-            if(
+            if (
+                this.terrorist.movements.currentCell == this.terrorist.movements.targetCell &&
+                this.terrorist.movements.currentCell ==
+                this.town.townCells[
+                    this.terrorist.terroristBehaviour.nextTargetCellx, 
+                    this.terrorist.terroristBehaviour.nextTargetCelly
+                ]
+            )
+            {
+                this.terrorist.terroristBehaviour.ingredientsAquired++;
+                this.terrorist.terroristBehaviour.ingredientBuildingCells.Remove(this.terrorist.terroristBehaviour.ingredientBuildingCells.Last());
+                if(this.terrorist.terroristBehaviour.ingredientBuildingCells.Count > 0)
+                {
+                    TownCell nextCell = this.terrorist.terroristBehaviour.ingredientBuildingCells.Last();
+                    this.terrorist.terroristBehaviour.nextTargetCellx = nextCell.x;
+                    this.terrorist.terroristBehaviour.nextTargetCelly = nextCell.y;
+                }
+               
+            }
+            if (
                 this.overlays.FindAll((x) => x.overlayItem.type == "Explosion").Count == 0 &&
-                this.terrorist != null && 
+                this.terrorist != null &&
                 this.terrorist.movements.currentCell == this.terrorist.terroristBehaviour.targetBuildingCell)
             {
                 SetOffExplosion(this.terrorist.movements.currentCell.x, this.terrorist.movements.currentCell.y);

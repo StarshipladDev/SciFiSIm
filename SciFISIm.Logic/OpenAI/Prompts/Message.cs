@@ -10,10 +10,10 @@ namespace SciFiSim.Logic.OpenAI.Prompts
     {
         public string role { get; set; }
         public string content { get; set; }
-        public Message(string role, string content)
+        public Message(string role, string user)
         {
             this.role = role;
-            this.content = content;
+            this.content = user;
         }
     }
 }
