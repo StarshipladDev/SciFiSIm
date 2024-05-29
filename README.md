@@ -41,7 +41,15 @@ SVG code to render assets within c# form
 ## Latest Update Notes:
 
 ```
+19/05/24:{
 
+	ScifiSim.Logic.TownSimulation -> Add Handling to prevent Terrorist Moving if Clicked to add gameification
+	
+	ScifiSim.Logic.OpenAI -> Add Co-ordniate retreival in a way that fools and end user to add gameification to project
+	
+	ScifiSim.Logic.PersonMovement/ TerroristBehaviour -> Add Targetpaths as array of co-ordinates and ingredients as stack of co-rodiantes to extend gameplay and add further options to edit paths traveled and ingredient logic
+	
+},
 19/05/24:{
 
 	ScifiSim.Form1.Form1() -> Add ClickHandler Reference that takes simulation and Webbrowser to allow Webrowser click events to apss back to rendered simulation
