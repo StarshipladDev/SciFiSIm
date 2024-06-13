@@ -69,6 +69,7 @@ namespace LogicTestApp.Tests
                 buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Behaviours.BuildingBehaviour(false,0,0)));
             }
             Simulation simulation = new Simulation(town, people, buildings);
+            simulation.simulation.CreateRandomTerroristBehaviour();
             simulation.RunSimulation(timeList.ToList(), (simulation) => { 
                 simulation.persons.ForEach((PersonEntity person) => {
                     Console.WriteLine($"\nPerson {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");

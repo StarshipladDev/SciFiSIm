@@ -40,10 +40,42 @@ namespace SciFiSim.Logic.OpenAI
             var requestContent = new StringContent(promptRequest, Encoding.UTF8, "application/json");
             client.BaseAddress = new Uri("https://api.openai.com/v1/chat/completions");
             HttpResponseMessage response = await client.PostAsync(client.BaseAddress, requestContent);
-            string resposneText = await response.Content.ReadAsStringAsync();
-            dynamic result = JsonConvert.DeserializeObject(resposneText);
+            string responseText = await response.Content.ReadAsStringAsync();
+            dynamic result = JsonConvert.DeserializeObject(responseText);
             string replyContent = result.choices[0].message.content;
             Reply reply = new PuzzleReply(replyContent, ["John Clemment", "Oscar Allen", "Josephine Jefferson"]);
+            return reply;
+
+
+
+        }
+        public static async Task<Reply> GetCoordReply(Prompt prompt)
+        {
+            HttpClient client = new HttpClient();
+            Config config = new Config();
+            XmlDocument doc = new XmlDocument();
+            doc.Load($"{Path.Combine(Environment.CurrentDirectory, "Credentials.config")}"); // Replace with the path to your XML file
+
+            // Get the value of the 'openaikey' element
+            XmlNode openaikeyNode = doc.SelectSingleNode("//openaikey");
+            if (openaikeyNode != null)
+            {
+                string openaikeyValue = openaikeyNode.InnerText;
+                config.openaikey = openaikeyValue;
+            }
+            else
+            {
+                Console.WriteLine("'openaikey' element not found in XML file.");
+            }
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", config.openaikey);
+            var promptRequest = System.Text.Json.JsonSerializer.Serialize(prompt);
+            var requestContent = new StringContent(promptRequest, Encoding.UTF8, "application/json");
+            client.BaseAddress = new Uri("https://api.openai.com/v1/chat/completions");
+            HttpResponseMessage response = await client.PostAsync(client.BaseAddress, requestContent);
+            string responseText = await response.Content.ReadAsStringAsync();
+            dynamic result = JsonConvert.DeserializeObject(responseText);
+            string replyContent = result.choices[0].message.content;
+            Reply reply = new CoordAIRawTextReply(replyContent);
             return reply;
 
 

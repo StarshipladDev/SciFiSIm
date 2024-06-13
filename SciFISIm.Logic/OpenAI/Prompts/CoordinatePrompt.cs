@@ -20,6 +20,7 @@ namespace SciFiSim.Logic.OpenAI.Prompts
             string promptString = "";
 
 
+            /* Give each person a start location */
             int personIndex = 0;
             foreach (var person in people)
             {
@@ -32,20 +33,28 @@ namespace SciFiSim.Logic.OpenAI.Prompts
             personIndex = 0;
             foreach (var person in people)
             {
-                promptString += $"{person.movements.currentCell.x},{person.movements.currentCell.y}S{personIndex}";
+                promptString += $"{person.movements.currentCell.x},{person.movements.currentCell.y}S{personIndex};";
                 personIndex++;
+            }
+            /* Append ingredients to prompt */
+            foreach (var targetCell in targetCells)
+            {
+                promptString += $"{targetCell.x},{targetCell.y}T;";
             }
 
             this.messages = new List<Message>();
             this.messages.Add(new Message(
                 "system",
-                 @"You are an assistant bot that generates movements for a set of agents on a grid.The input is a list of people with their IDs and names, a grid size, and a list of starting and target locations.The output is a JSON array where each agent has an 'Id', an array of 'agentMovements'(each movement being an[x, y] coordinate), and a boolean 'target_hunter' indicating if the agent is the target hunter.One agent must move through each target location in order while having movements similar to other agents.The target hunter should be chosen randomly. The Grid is 0-indexed in size, so a size 10 grid goes from 0 - 9
+                 @"You are an assistant bot that generates movements for a set of agents on a grid.The input is a list of people with their IDs and names, a grid size, and a list of starting and target locations.The output is a JSON array where each agent has an 'Id', an array of 'agentMovements'(each movement being an[x, y] coordinate), 
+                    and a boolean 'target_hunter' indicating if the agent is the target hunter.One agent must move through each target location in order while having movements similar to other agents.The target hunter should be chosen randomly. The Grid is 0-indexed in size, so a size 10 grid goes from 0 - 9
 
                 Example Input:
                 1 Jimmy Jameson; 2 Bobby Bobson; 3 Jacob Jacobson; 4 Ronny Ronson; ; 10,10; ; ; 2,2,S1; 3,3,S2; 4,4,S3; 5,5,S4; 6,6T1; 7,7T2; 8,8T3
 
                 Example Output:
-                            [    {
+                           { 
+                    ""movements"" : [    
+                    {
                                 ""Id"": 1,        ""agentMovements"": [[2, 2], [3, 2], [4, 2], [5, 2], [6, 2], [7, 2], [8, 2], [9, 2], [9, 3], [9, 4], [9, 5], [9, 6], [9, 7], [9, 8], [9, 9]],
                         ""target_hunter"": false
                     },

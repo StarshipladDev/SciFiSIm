@@ -8,5 +8,9 @@ namespace SciFiSim.Logic.Models.Entities.Crafting.Ingredients
 {
     public class Part : IngredientBase
     {
+        public Part()
+        {
+            this.name = "Part";
+        }
     }
 }
