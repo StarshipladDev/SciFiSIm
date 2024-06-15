@@ -41,16 +41,10 @@ namespace SciFiSim.Logic.Models.System.Logic
                 building.behaviour.yLoc = rand.Next(town.townCells.GetLength(0));
             });
         }
-        public void CreateBlankTerroristAndIngridentBuilding(int ingredientNumber, List<BuildingEntity> possibleBuildings)
+
+        public void SetUpIngredientBuildingsAndTarget(int ingredientNumber)
         {
-            /* Create new single terrorist */
             Random rand = new Random();
-            PersonEntity badPerson = this.persons[rand.Next(this.persons.Count)];
-            this.terrorist = badPerson;
-            badPerson.terroristBehaviour = new Behaviours.TerroristBehaviour(ingredientNumber, 0);
-
-            /* Assign Ingredients to buildings */
-
             List<int> availableBuildingIndexes = new List<int> { };
             int buildingIndex = 0;
             this.buildings.ForEach((building) =>
@@ -60,62 +54,52 @@ namespace SciFiSim.Logic.Models.System.Logic
             });
             int possibleBuildingIndex = 0;
             while (
-                badPerson.terroristBehaviour.ingredientBuildingCells.Count < ingredientNumber &&
-                badPerson.terroristBehaviour.ingredientBuildingCells.Count < this.buildings.Count - 2)
+                this.terrorist.terroristBehaviour.ingredientBuildingCells.Count < ingredientNumber &&
+                this.terrorist.terroristBehaviour.ingredientBuildingCells.Count < this.buildings.Count - 2)
             {
                 possibleBuildingIndex = availableBuildingIndexes[rand.Next(availableBuildingIndexes.Count)];
                 this.buildings[possibleBuildingIndex].behaviour.ingredientsInBuilding.Add(new IngredientEntity { ingredient = new Part() });
                 TownCell maybeIngredientCell = this.town.townCells[this.buildings[possibleBuildingIndex].behaviour.xLoc, this.buildings[possibleBuildingIndex].behaviour.yLoc];
-                if (!badPerson.terroristBehaviour.ingredientBuildingCells.Contains(maybeIngredientCell))
+                if (!this.terrorist.terroristBehaviour.ingredientBuildingCells.Contains(maybeIngredientCell))
                 {
-                    badPerson.terroristBehaviour.ingredientBuildingCells.Add(
+                    this.terrorist.terroristBehaviour.ingredientBuildingCells.Add(
                        maybeIngredientCell
                     );
                     availableBuildingIndexes.Remove(possibleBuildingIndex);
                 }
             }
-        }
-        public void CreateRandomTerroristBehaviour()
-        {
-            List<int> availableBuildingIndexes = new List<int> { };
-            int buildingIndex = 0;
-            this.buildings.ForEach((building) =>
-            {
-                availableBuildingIndexes.Add(buildingIndex);
-                buildingIndex++;
-            });
-            Random rand = new Random();
-            PersonEntity badPerson = this.persons[rand.Next(this.persons.Count)];
-            this.terrorist = badPerson;
-            badPerson.terroristBehaviour = new Behaviours.TerroristBehaviour(IngredientBuildingsCount, 0);
-            int possibleBuildingIndex = 0;
-            while (
-                badPerson.terroristBehaviour.ingredientBuildingCells.Count < IngredientBuildingsCount &&
-                badPerson.terroristBehaviour.ingredientBuildingCells.Count < this.buildings.Count - 2)
-            {
-                possibleBuildingIndex = availableBuildingIndexes[rand.Next(availableBuildingIndexes.Count)];
-                TownCell maybeIngredientCell = this.town.townCells[this.buildings[possibleBuildingIndex].behaviour.xLoc, this.buildings[possibleBuildingIndex].behaviour.yLoc];
-                if (!badPerson.terroristBehaviour.ingredientBuildingCells.Contains(maybeIngredientCell))
-                {
-                    badPerson.terroristBehaviour.ingredientBuildingCells.Add(
-                       maybeIngredientCell
-                    );
-                    availableBuildingIndexes.Remove(possibleBuildingIndex);
-                }
-            }
-
             possibleBuildingIndex = availableBuildingIndexes[rand.Next(availableBuildingIndexes.Count)];
             TownCell maybeTargetCell = this.town.townCells[this.buildings[possibleBuildingIndex].behaviour.xLoc, this.buildings[possibleBuildingIndex].behaviour.yLoc];
 
-            while (badPerson.terroristBehaviour.ingredientBuildingCells.Contains(maybeTargetCell))
+            while (this.terrorist.terroristBehaviour.ingredientBuildingCells.Contains(maybeTargetCell))
             {
                 possibleBuildingIndex = rand.Next(this.buildings.Count);
                 maybeTargetCell = this.town.townCells[this.buildings[possibleBuildingIndex].behaviour.xLoc, this.buildings[possibleBuildingIndex].behaviour.yLoc];
 
                 availableBuildingIndexes.Remove(possibleBuildingIndex);
             }
-            badPerson.terroristBehaviour.targetBuildingCell =
+            this.terrorist.terroristBehaviour.targetBuildingCell =
                maybeTargetCell;
+        }
+        public void SetUpNewTerrorist(int ingredientNumber)
+        {
+            /* Create new single terrorist */
+            Random rand = new Random();
+            PersonEntity badPerson = this.persons[rand.Next(this.persons.Count)];
+            this.terrorist = badPerson;
+            badPerson.terroristBehaviour = new Behaviours.TerroristBehaviour(ingredientNumber, 0);
+        }
+        public void CreateBlankTerroristAndIngridentBuilding(int ingredientNumber)
+        {
+            SetUpNewTerrorist(ingredientNumber);
+            SetUpIngredientBuildingsAndTarget(ingredientNumber);
+            /* Assign Ingredients to buildings */
+
+
+        }
+        public void CreateRandomTerroristMovements()
+        {
+            PersonEntity badPerson = this.terrorist;
             badPerson.movements.listOfFutureMovements = new Stack<TownCell>();
             badPerson.movements.listOfFutureMovements.Push(badPerson.terroristBehaviour.targetBuildingCell);
             badPerson.terroristBehaviour.ingredientBuildingCells.ForEach((cell =>

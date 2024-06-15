@@ -3,6 +3,7 @@ using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
 using SciFiSim.Logic.Models.System.Logic;
 using SciFiSim.Logic.OpenAI;
+using SciFiSim.Logic.OpenAI.Migration;
 using SciFiSim.Logic.OpenAI.Prompts;
 using SciFiSim.Logic.OpenAI.Replies;
 using System;
@@ -52,28 +53,15 @@ namespace LogicTestApp.Tests
                 buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Behaviours.BuildingBehaviour(false, 0, 0)));
             }
             Simulation simulation = new Simulation(town, people, buildings);
-            simulation.simulation.CreateBlankTerroristAndIngridentBuilding(4,buildings);
+            simulation.simulation.CreateBlankTerroristAndIngridentBuilding(4);
             List<TownCell> terroristTargetCells = new List<TownCell>();
             foreach (TownCell cell in simulation.simulation.terrorist.terroristBehaviour.ingredientBuildingCells)
             {
                 terroristTargetCells.Add(simulation.simulation.town.townCells[cell.x,cell.y]);
             }
-            CoordinatePrompt targetPrompt = new CoordinatePrompt(simulation.simulation.town.townCells.GetLength(0), people, terroristTargetCells);
-            Reply reply = await OpenAIClient.GetCoordReply(targetPrompt);
-            CoordinateReply coordReply = JsonConvert.DeserializeObject<CoordinateReply>(reply.replyText);
 
-            int personCounter = 0;
-            foreach(Movement move in coordReply.movements)
-            {
-                Stack<TownCell> cells = new Stack<TownCell>();
-                for(int i = move.agentMovements.GetLength(0)-1; i>-1; i--)
-                {
-                    cells.Push(simulation.simulation.town.townCells[move.agentMovements[i,0], move.agentMovements[i,1]]);
-                }
-                simulation.simulation.persons[personCounter].movements.listOfFutureMovements = cells;
-                personCounter++;
-
-            }
+            terroristTargetCells.Add(simulation.simulation.town.townCells[simulation.simulation.terrorist.terroristBehaviour.targetBuildingCell.x, simulation.simulation.terrorist.terroristBehaviour.targetBuildingCell.y]);
+            await OpenAICoordsToSimulation.RenderCoordsReplyToSimulation(simulation, terroristTargetCells);
             simulation.RunSimulation(timeList.ToList(), (simulation) => {
                 simulation.persons.ForEach((PersonEntity person) => {
                     Console.WriteLine($"\nPerson {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");
