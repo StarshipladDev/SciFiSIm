@@ -144,8 +144,7 @@
               "RelativeToolTip": "..\\LogicTestApp\\Tests\\SimulationTest.cs",
               "ViewState": "AQIAAC4AAAAAAAAAAAAgwEcAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T02:22:25.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-15T02:22:25.244Z"
             },
             {
               "$type": "Document",
@@ -155,7 +154,7 @@
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Migration\\OpenAICoordsToSimulation.cs",
               "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Migration\\OpenAICoordsToSimulation.cs",
               "RelativeToolTip": "..\\SciFISIm.Logic\\OpenAI\\Migration\\OpenAICoordsToSimulation.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAVAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAB0AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-15T02:16:01.968Z",
               "EditorCaption": ""
@@ -170,8 +169,7 @@
               "RelativeToolTip": "..\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAjwC0AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T11:53:38.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T11:53:38.756Z"
             },
             {
               "$type": "Document",
@@ -183,8 +181,7 @@
               "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\Logic\\TownSimulation.cs",
               "ViewState": "AQIAAD8AAAAAAAAAAAD4v1sAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T11:36:21.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T11:36:21.1Z"
             },
             {
               "$type": "Document",
@@ -209,8 +206,7 @@
               "RelativeToolTip": "..\\SciFISIm.Logic\\OpenAI\\Replies\\CoordAIRawTextReply.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T12:00:05.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-13T12:00:05.996Z"
             },
             {
               "$type": "Document",
