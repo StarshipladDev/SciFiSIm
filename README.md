@@ -23,7 +23,11 @@ SVG code to render assets within c# form
 
 ## View of progress
 
-**CURRENT - 19/05/24 , click handlers**
+**CURRENT - 06/07/24 , SWAT Game Rendering Begins**
+
+![ALt text](/Blackboard/READMEImage.png)
+
+**06/07/24 , click handlers**
 
 ![ALt text](/Blackboard/README1.png)
 
@@ -34,27 +38,21 @@ SVG code to render assets within c# form
 
 ## Latest Build
 
-*19/05/24 - Click handling*
+*06/07/24 - SWAT Game Rendering Begins*
 
-![ALt text](/Blackboard/README1.png)
+![ALt text](/Blackboard/READMEImage.png)
 
 ## Latest Update Notes:
 
 ```
-19/05/24:{
+06/07/24:{
 
-	ScifiSim.Logic.TownSimulation -> Add Handling to prevent Terrorist Moving if Clicked to add gameification
-	
-	ScifiSim.Logic.OpenAI -> Add Co-ordniate retreival in a way that fools and end user to add gameification to project
-	
-	ScifiSim.Logic.PersonMovement/ TerroristBehaviour -> Add Targetpaths as array of co-ordinates and ingredients as stack of co-rodiantes to extend gameplay and add further options to edit paths traveled and ingredient logic
-	
-},
-19/05/24:{
-
-	ScifiSim.Form1.Form1() -> Add ClickHandler Reference that takes simulation and Webbrowser to allow Webrowser click events to apss back to rendered simulation
-	
-	SciFiSim.SvgClickHandler() -> Add SvgClickHandler to allow handling of C# code from HTML/SVG click events
+	ScifiSim.Form1 : {
+		OnCreate : Add Panel to main Form to render SWAT assets to for user
+	},
+	ScifiSim.Assets : {
+		SWAT_Game : Add Sample Card Templates to allow testing of rendering
+	}
 	
 }
 
@@ -62,19 +60,19 @@ SVG code to render assets within c# form
 
 ## Latest Updates
 
-*19/05/24 - Click handling*
+*06/07/24 - SWAT Game Rendering Begins*
 
-Updated code to allow clicking of SVG to dispaly overlaid handcuff animations
+Added sampel SWAT card game images and WinForm panel to render to.
 
-![ALt text](/Blackboard/README1.png)
+![ALt text](/Blackboard/READMEImage.png)
 
 ## Next Build
 
-25/05/24 - BaseGame  **No current delays**
+30/07/24 - BaseGame  **Delayed 3 Months Due To Contract Work**
 
 * SWAT game MVP implemented
 
-* Handcuffign suspected terrorist will prevent movement and plot
+* Handcuffing suspected terrorist will prevent movement and plot
 
 
 ## Skill developing
@@ -90,7 +88,31 @@ I planned on this project improving my skills in the following:
 ## Installing and Compiling:
 
 *To be completed * 
+## Step 1: Install Visual Studio
+1. Go to the [Visual Studio Download Page](https://visualstudio.microsoft.com/downloads/).
+2. Download the **Visual Studio Community** edition.
+3. Run the installer and follow the instructions.
+4. During installation, ensure to select the **.NET desktop development** workload.
 
+## Step 2: Open the Project
+1. Open Visual Studio.
+2. Click on **Open a project or solution**.
+3. Navigate to the folder where your project is located and select the `.sln` (solution) file.
+
+## Step 3: Compile the Project
+1. Once the project is loaded in Visual Studio, go to the **Build** menu at the top.
+2. Click on **Build Solution** or press `Ctrl+Shift+B`.
+
+## Step 4: Get the .exe File
+1. After the build is successful, open **File Explorer**.
+2. Navigate to the project directory, then go to the `bin\Debug\net6.0-windows` or similar directory depending on your .NET version.
+3. You will find the `.exe` file of your project in this directory.
+
+## Troubleshooting
+- If you encounter any errors during the build process, check the **Error List** at the bottom of Visual Studio for details and try to resolve them.
+- Make sure all required dependencies and packages are installed by restoring NuGet packages if prompted.
+
+That's it! You now have the executable file for your .NET WinForms project.
 
 *Click on grid* - Spawn handcuffs 
 

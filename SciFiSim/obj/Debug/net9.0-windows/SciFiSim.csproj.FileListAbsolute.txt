@@ -81,3 +81,5 @@ C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\runtimes\win-arm6
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Microsoft.Web.WebView2.Core.dll
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Microsoft.Web.WebView2.WinForms.dll
 C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Microsoft.Web.WebView2.Wpf.dll
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\SWAT_Game\SWAT\SWAT_1.png
+C:\Code\C#\SpecOpsControlApp\SciFiSim\bin\Debug\net9.0-windows\Assets\SWAT_Game\SWAT\SWAT_2.png

@@ -3,22 +3,30 @@
   "WorkspaceRootPath": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\openai\\migration\\openaicoordstosimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\logic\\townsimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\openai\\openaiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5CB0949D-41E5-41FE-A77F-F8DB37542209}|..\\LogicTestApp\\LogicTestApp.csproj|c:\\code\\c#\\specopscontrolapp\\logictestapp\\tests\\openaicoordinatetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\logic\\townsimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\openai\\migration\\openaicoordstosimulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5CB0949D-41E5-41FE-A77F-F8DB37542209}|..\\LogicTestApp\\LogicTestApp.csproj|c:\\code\\c#\\specopscontrolapp\\logictestapp\\tests\\simulationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\openai\\replies\\coordairawtextreply.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\openai\\openaiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\entities\\crafting\\ingredients\\part.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -67,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:assets\\svgs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -81,14 +85,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\behaviours\\personmovements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1A05F40B-5157-4F0B-A989-897FC8DF5C08}|SciFiSim.csproj|C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\renderers\\rendertownsimtosvg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -132,23 +128,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SimulationTest.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\SimulationTest.cs",
-              "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\SimulationTest.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\SimulationTest.cs",
-              "RelativeToolTip": "..\\LogicTestApp\\Tests\\SimulationTest.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAgwEcAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T02:22:25.244Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "OpenAICoordsToSimulation.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Migration\\OpenAICoordsToSimulation.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Migration\\OpenAICoordsToSimulation.cs",
@@ -162,30 +146,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "OpenAICoordinateTest.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
-              "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
-              "RelativeToolTip": "..\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAjwC0AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-13T11:53:38.756Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "TownSimulation.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\Logic\\TownSimulation.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\Logic\\TownSimulation.cs",
               "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\Logic\\TownSimulation.cs",
               "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\Logic\\TownSimulation.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAD4v1sAAABRAAAA",
+              "ViewState": "AQIAAEgAAAAAAAAAAAD4v2MAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T11:36:21.1Z"
+              "WhenOpened": "2024-05-15T11:36:21.1Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "OpenAIClient.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\OpenAIClient.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\OpenAIClient.cs",
@@ -198,7 +171,58 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T11:06:46.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAgwFgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T11:35:22.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "OpenAICoordinateTest.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
+              "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
+              "RelativeToolTip": "..\\LogicTestApp\\Tests\\OpenAICoordinateTest.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAjwDgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-13T11:53:38.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SimulationTest.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\SimulationTest.cs",
+              "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\SimulationTest.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\SimulationTest.cs",
+              "RelativeToolTip": "..\\LogicTestApp\\Tests\\SimulationTest.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAgwEcAAABMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T02:22:25.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "CoordAIRawTextReply.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Replies\\CoordAIRawTextReply.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Replies\\CoordAIRawTextReply.cs",
@@ -210,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Simulation.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\Logic\\Simulation.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\Logic\\Simulation.cs",
@@ -222,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "OpenAILocationGuide.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Replies\\OpenAILocationGuide.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Replies\\OpenAILocationGuide.cs",
@@ -234,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Part.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\Crafting\\Ingredients\\Part.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\Crafting\\Ingredients\\Part.cs",
@@ -246,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "PuzzleReply.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Replies\\PuzzleReply.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Replies\\PuzzleReply.cs",
@@ -258,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Program.cs",
               "RelativeDocumentMoniker": "..\\LogicTestApp\\Program.cs",
@@ -270,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Reply.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Replies\\Reply.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Replies\\Reply.cs",
@@ -282,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "PuzzleGen.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Prompts\\PuzzleGen.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Prompts\\PuzzleGen.cs",
@@ -294,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "CoordinatePrompt.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Prompts\\CoordinatePrompt.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Prompts\\CoordinatePrompt.cs",
@@ -306,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "HousesTest.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\HousesTest.cs",
               "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\HousesTest.cs",
@@ -318,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "PersonTest.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\PersonTest.cs",
               "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\PersonTest.cs",
@@ -330,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "BuildingBehaviour.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\Behaviours\\BuildingBehaviour.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\Behaviours\\BuildingBehaviour.cs",
@@ -342,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Prompt.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Prompts\\Prompt.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Prompts\\Prompt.cs",
@@ -354,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Message.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\OpenAI\\Prompts\\Message.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\OpenAI\\Prompts\\Message.cs",
@@ -366,19 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAAwKYAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T11:35:22.39Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "Config.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Config.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Config.cs",
@@ -390,7 +402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "SVGs.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Assets\\SVGs.cs",
               "RelativeDocumentMoniker": "Assets\\SVGs.cs",
@@ -402,7 +414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Credentials.config",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Credentials.config",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Credentials.config",
@@ -414,7 +426,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "TerroristBehaviour.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\Behaviours\\TerroristBehaviour.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\Behaviours\\TerroristBehaviour.cs",
@@ -426,7 +438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "PersonMovements.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\Behaviours\\PersonMovements.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\Behaviours\\PersonMovements.cs",
@@ -438,7 +450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "PersonEntity.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\Root\\PersonEntity.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\Root\\PersonEntity.cs",
@@ -451,29 +463,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 27,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:06:46.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:03:03.072Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
               "Title": "RenderTownSimToSvg.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Renderers\\RenderTownSimToSvg.cs",
               "RelativeDocumentMoniker": "Renderers\\RenderTownSimToSvg.cs",
@@ -485,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "TownCell.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\Town\\TownCell.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\Town\\TownCell.cs",
@@ -497,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "SVGClickHandler.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Utility\\SVGClickHandler.cs",
               "RelativeDocumentMoniker": "Utility\\SVGClickHandler.cs",
@@ -509,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "Cuff.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\Overlay\\Cuff\\Cuff.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\Overlay\\Cuff\\Cuff.cs",
@@ -521,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "Explosion.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\Overlay\\Explosion\\Explosion.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\Overlay\\Explosion\\Explosion.cs",
@@ -533,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "OverlayEntity.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\Root\\OverlayEntity.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\Root\\OverlayEntity.cs",
@@ -545,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "Overlaybase.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\Entities\\Overlay\\Overlaybase.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\Entities\\Overlay\\Overlaybase.cs",
@@ -557,7 +546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "Time.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\Logic\\Time.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\Logic\\Time.cs",
@@ -569,7 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "ScriptManager.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\Utility\\ScriptManager.cs",
               "RelativeDocumentMoniker": "Utility\\ScriptManager.cs",
@@ -582,7 +571,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 36,
               "Title": "HTMLBox.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFiSim\\ControlFactory\\HTMLBox.cs",
               "RelativeDocumentMoniker": "ControlFactory\\HTMLBox.cs",
