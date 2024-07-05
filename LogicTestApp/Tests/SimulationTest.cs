@@ -69,15 +69,22 @@ namespace LogicTestApp.Tests
                 buildings.Add(new BuildingEntity(Guid.NewGuid(), new SciFiSim.Logic.Models.System.Behaviours.BuildingBehaviour(false,0,0)));
             }
             Simulation simulation = new Simulation(town, people, buildings);
+            simulation.simulation.CreateBlankTerroristAndIngridentBuilding(4);
+            simulation.simulation.CreateRandomTerroristMovements();
             simulation.RunSimulation(timeList.ToList(), (simulation) => { 
                 simulation.persons.ForEach((PersonEntity person) => {
-                    Console.WriteLine($"Person {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");
+                    Console.WriteLine($"\nPerson {person.personStyle.firstName} is at {person.movements.currentCell} moving to {person.movements?.targetCell}");
                     Console.WriteLine("Target cells size for them is :"+ person.movements.listOfFutureMovements.Count());
                     if(person.terroristBehaviour != null)
                     {
                         Console.WriteLine($"Person {person.personStyle.firstName} is terrorist, going to ");
                         Console.Write($"{person.terroristBehaviour.targetBuildingCell}");
-                        Console.Write($"from ingredient cell {person.terroristBehaviour.ingredientBuildingCell}");
+                        int ingredientOrder = 0;
+                        person.terroristBehaviour.ingredientBuildingCells.ForEach((ingredientCell => {
+
+                            Console.Write($"\n ,  ingredient cell {ingredientOrder} : {ingredientCell}");
+                            ingredientOrder++;
+                        }));
 
                     }
                     if(simulation.overlays.Count > 0)

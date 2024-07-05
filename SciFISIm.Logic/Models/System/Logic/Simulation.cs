@@ -23,13 +23,12 @@ namespace SciFiSim.Logic.Models.System.Logic
             {
                 this.simulation = new TownSimulation(town, people, buildings);
                 this.simulation.SetStartLocation();
-                this.simulation.CreateTerrorist();
             }
         }
         public void RunSimulation(List<Time> timeSlots, Action<TownSimulation> actionToPreformOnTick)
         {
             this.timeSlots = timeSlots;
-            timer = new Timer(3000); // Set the interval to 2 seconds
+            timer = new Timer(1000); // Set the interval to 2 seconds
 
             // Subscribe to the Elapsed event
             timer.Elapsed += this.OnTick;

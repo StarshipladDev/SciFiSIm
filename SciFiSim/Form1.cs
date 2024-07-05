@@ -5,6 +5,8 @@ using SciFiSim.Logic;
 using SciFiSim.Logic.Models.Entities.Root;
 using SciFiSim.Logic.Models.Entities.Town;
 using SciFiSim.Logic.Models.System.Logic;
+using SciFiSim.Logic.OpenAI.Prompts;
+using SciFiSim.Logic.OpenAI;
 using SciFiSim.Logic.OpenAI.Replies;
 using SciFiSim.Logic.Test;
 using SciFiSim.Renderers;
@@ -18,9 +20,9 @@ namespace SciFiSim
     {
         private WebBrowser webBrowser;
         private SVGClickHandler svgClickHandler;
+        Panel swatGameRenderPanel;
         public Form1()
         {
-
 
             string appName = System.IO.Path.GetFileName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             using (var key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey($@"Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION"))
@@ -53,14 +55,7 @@ namespace SciFiSim
             openAIButton.Text = "Get Open AI Puzzle";
             openAIButton.Size = new Size(100, 50);
             openAIButton.Location = new Point(this.Location.X + 350, this.Location.Y + 100);
-            openAIButton.Click += async (sender, e) =>
-            {
-                // Perform actions when the button is clicked
-                Reply replyFromOpenAI = await SciFiSim.Logic.Test.OpenAITest.Main([]);
-                openAIText.Text = replyFromOpenAI.replyText;
-                clueBrowser.Document.Write(Grid.GetGrid(replyFromOpenAI.replyText));
-                clueBrowser.Refresh();
-            };
+            
 
             // Move SMiley Button
             Button moveSmileyButton = new Button();
@@ -73,6 +68,12 @@ namespace SciFiSim
                 clueBrowser.Document.Write(htmlText);
             };
 
+            // Card Render
+            swatGameRenderPanel = new Panel();
+            swatGameRenderPanel.Size = new Size(200, 400);
+            swatGameRenderPanel.Location = new Point(this.Location.X + 650, this.Location.Y + 100);
+            this.swatGameRenderPanel.Paint += new PaintEventHandler(this.SwatGamePanelRender);
+
 
             Controls.Add(textbox);
             Controls.Add(webBrowser);
@@ -80,9 +81,12 @@ namespace SciFiSim
             Controls.Add(openAIText);
             Controls.Add(moveSmileyButton);
             Controls.Add(openAIButton);
+            Controls.Add(swatGameRenderPanel);
             InitializeComponent();
             webBrowser.Refresh();
             clueBrowser.Refresh();
+
+            this.Size = new Size(1000, 600);
 
 
             /* Logic handling */
@@ -138,6 +142,8 @@ namespace SciFiSim
             int frameCount = 0;
             Simulation simulation = new Simulation(town, people, buildings);
 
+            simulation.simulation.CreateBlankTerroristAndIngridentBuilding(4);
+            simulation.simulation.CreateRandomTerroristMovements();
             this.svgClickHandler = new SVGClickHandler(webBrowser, textbox, 250, simulation);
             webBrowser.DocumentCompleted += svgClickHandler.WebBrowser_DocumentCompleted;
             simulation.RunSimulation(timeList.ToList(), async (simulation) => {
@@ -166,7 +172,37 @@ namespace SciFiSim
                 }
             });
 
+            openAIButton.Click += async (sender, e) =>
+            {
+                // Perform actions when the button is clicked
+                Reply replyFromOpenAI = await OpenAIClient.GetPuzzleReply(new CoordinatePrompt(
+                    simulation.simulation.town.townCells.GetLength(0),
+                    simulation.simulation.persons,
+                    simulation.simulation.terrorist.movements.listOfFutureMovements.ToList()
+                    
+                ));
+                openAIText.Text = replyFromOpenAI.replyText;
+                clueBrowser.Document.Write(Grid.GetGrid(replyFromOpenAI.replyText));
+                clueBrowser.Refresh();
+            };
+
 
         }
+        public void SwatGamePanelRender(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            string imagePath = "Assets/SWAT_Game/SWAT/SWAT_1.png";
+
+            // Load the image
+            Image img = Image.FromFile(imagePath);
+
+            // Draw the image at the specified location (e.g., at the point (10, 10))
+            g.DrawImage(img, new Point(10, 10));
+
+            // Dispose the image after use to free resources
+            img.Dispose();
+        }
     }
+
+    
 }
