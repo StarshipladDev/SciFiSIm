@@ -23,7 +23,11 @@ SVG code to render assets within c# form
 
 ## View of progress
 
-**CURRENT - 06/07/24 , SWAT Game Rendering Begins**
+**CURRENT - 15/07/24 , SWAT Game Design**
+
+![ALt text](/Blackboard/SwatgameTestPlay.png)
+
+**06/07/24 , SWAT Game Rendering Begins**
 
 ![ALt text](/Blackboard/READMEImage.png)
 
@@ -38,20 +42,29 @@ SVG code to render assets within c# form
 
 ## Latest Build
 
-*06/07/24 - SWAT Game Rendering Begins*
+*15/07/24 , SWAT Game Design*
 
-![ALt text](/Blackboard/READMEImage.png)
+![ALt text](/Blackboard/SwatgameTestPlay.png)
 
 ## Latest Update Notes:
 
 ```
-06/07/24:{
+15/07/24:{
 
-	ScifiSim.Form1 : {
-		OnCreate : Add Panel to main Form to render SWAT assets to for user
+	ScifiSim.Logic : {
+		Models:{
+			System:{
+				RaidGame:{
+					Core:[
+						"Added Deck to handle in-game card handling",
+						"Added Card to associate action with a unique card",
+						]
+				}
+			}
+		}
 	},
-	ScifiSim.Assets : {
-		SWAT_Game : Add Sample Card Templates to allow testing of rendering
+	ScifiSim.Test : {
+		CardGameTest : ["Made console testing script to simulate UI for new Deck and Card mechanics, and renderign text based on actions to implement core gameplay"]
 	}
 	
 }
@@ -60,11 +73,11 @@ SVG code to render assets within c# form
 
 ## Latest Updates
 
-*06/07/24 - SWAT Game Rendering Begins*
+*15/07/24 - SWAT Game Design*
 
-Added sampel SWAT card game images and WinForm panel to render to.
+Implemented basic COnsole-based UI for SWAT game, ran a test game for MVP gameplay 
 
-![ALt text](/Blackboard/READMEImage.png)
+![ALt text](/Blackboard/SwatgameTestPlay.png)
 
 ## Next Build
 

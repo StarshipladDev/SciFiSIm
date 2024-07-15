@@ -2,5 +2,5 @@
 using LogicTestApp.Tests;
 
 Console.WriteLine("Hello, World!");
-OpenAICoordinateTest.SimulationTestRunning();
+CardgameTest.RunCardgameTest();
 Console.ReadLine();

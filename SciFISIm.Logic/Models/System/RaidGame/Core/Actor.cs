@@ -11,7 +11,7 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
         public List<Behaviour> behaviours;
         public Actor()
         {
-            this.behaviours = null;
+            this.behaviours = new List<Behaviour>();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SciFiSim.Logic.Models.System.RaidGame.Core
 {
-    internal class Place
+    public class Place
     {
     }
 }
