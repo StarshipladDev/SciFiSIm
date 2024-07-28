@@ -11,10 +11,12 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Actors
     {
         public int health;
         public FactionType factionType;
-        public ActorDetails(int health, FactionType factionType)
+        public string actorName;
+        public ActorDetails(int health, FactionType factionType, string actorName)
         {
             this.health = health;
             this.factionType = factionType;
+            this.actorName = actorName;
         }
     }
 }

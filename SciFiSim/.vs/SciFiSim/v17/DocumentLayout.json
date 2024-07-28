@@ -4,6 +4,15 @@
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{5CB0949D-41E5-41FE-A77F-F8DB37542209}|..\\LogicTestApp\\LogicTestApp.csproj|c:\\code\\c#\\specopscontrolapp\\logictestapp\\tests\\cardgametest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\raidgameinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\actors\\actordetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,8 +22,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ActorDetails.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actors\\ActorDetails.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actors\\ActorDetails.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actors\\ActorDetails.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actors\\ActorDetails.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T04:17:54.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Deck.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwBQAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T03:52:06.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RaidGameInstance.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAawEUAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T03:51:57.31Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -23,7 +71,7 @@
               "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\CardgameTest.cs",
               "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\CardgameTest.cs",
               "RelativeToolTip": "..\\LogicTestApp\\Tests\\CardgameTest.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAowE8AAAAAAAAA",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAAALUAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-28T03:14:25.155Z",
               "EditorCaption": ""
