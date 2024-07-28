@@ -15,7 +15,7 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
         {
             this.places = new List<Place>();
             this.actors = new List<Actor>();
-            this.cardDeck = new Deck(new List<Card>());
+            this.cardDeck = new Deck(new List<Card>(),this);
 
         }
         public List<Card> GetDeckHand()
@@ -34,13 +34,22 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
         {
             this.cardDeck.SetUpDeck(cardList);
         }
-        public string PlayCardInHand(Card cardPlayed, Actor actor)
+        public void AddCardToHand(Card cardToAdd)
         {
-            this.cardDeck.PalyACard(cardPlayed);
-            string replytext = "";
-            replytext += $"In response to your " + cardPlayed.cardAction.actionTitle + " an actor " + actor.behaviours[0].actionList[0].actionTitle+"\n";
-
-            return replytext;
+            this.cardDeck.cardsInHand.Add(cardToAdd); ;
+        }
+        public void PlayCardInHand(Card cardPlayed, Actor? targetedActor)
+        {
+            this.cardDeck.PlayACard(cardPlayed, targetedActor);
+        }
+        public string PrintCardNamesInHand()
+        {
+            string returnString = "";
+            foreach (Card card in cardDeck.cardsInHand)
+            {
+                returnString = card.cardAction.actionTitle + "|";
+            }
+            return returnString;
         }
     }
 }

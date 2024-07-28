@@ -13,7 +13,8 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
         public Stack<Card> currentDeck;
         public List<Card> allCardsPlayed;
         public List<Card> cardsInHand;
-        public Deck(List<Card> allCardsAtStart)
+        public RaidGameInstance instance;
+        public Deck(List<Card> allCardsAtStart, RaidGameInstance instance)
         {
             this.allCardsAtStart = allCardsAtStart;
             this.currentDeck = new Stack<Card> ();
@@ -24,6 +25,7 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
             });
             this.allCardsPlayed = new List<Card>();
             this.cardsInHand = new List<Card>();
+            this.instance = instance;
 
         }
         public void SetUpDeck(List<Card> allCardsAtStart)
@@ -55,10 +57,11 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
             this.cardsInHand.Add(topCard);
         }
 
-        public void PalyACard(Card cardPlayed)
+        public void PlayACard(Card cardPlayed, Actor? targetedActor )
         {
             this.cardsInHand.Remove(cardPlayed);
             this.allCardsPlayed.Add(cardPlayed);
+            cardPlayed.cardAction.PreformAction(this.instance,targetedActor);
         }
 
         private void ShuffleDeck(List<Card> list)

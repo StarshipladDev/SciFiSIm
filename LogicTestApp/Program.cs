@@ -2,5 +2,5 @@
 using LogicTestApp.Tests;
 
 Console.WriteLine("Hello, World!");
-CardgameTest.RunCardgameTest();
+CardgameTest.RunCardgameTestActions();
 Console.ReadLine();

@@ -8,10 +8,10 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
 {
     public abstract class Behaviour
     {
-        public List<Action> actionList = new List<Action>();
-        public void AddAction(Core.Action action)
+        public List<Card> cardActionList = new List<Card>();
+        public void AddCardPush(Card cardToAdd)
         {
-            this.actionList.Add(action);
+            this.cardActionList.Add(cardToAdd);
         }
     }
 }
