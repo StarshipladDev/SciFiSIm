@@ -23,7 +23,12 @@ SVG code to render assets within c# form
 
 ## View of progress
 
-**CURRENT - 15/07/24 , SWAT Game Design**
+
+**CURRENT 30/07/24 , SWAT Game Console MVP**
+
+![SWAT Console Game](/Blackboard/README2.png)
+
+**15/07/24 , SWAT Game Design**
 
 ![ALt text](/Blackboard/SwatgameTestPlay.png)
 
@@ -42,29 +47,28 @@ SVG code to render assets within c# form
 
 ## Latest Build
 
-*15/07/24 , SWAT Game Design*
+*30/07/24 , SWAT Game Console MVP*
 
-![ALt text](/Blackboard/SwatgameTestPlay.png)
+![SWAT Console Game](/Blackboard/README2.png)
 
 ## Latest Update Notes:
 
 ```
-15/07/24:{
+30/07/24:{
 
 	ScifiSim.Logic : {
 		Models:{
 			System:{
 				RaidGame:{
 					Core:[
-						"Added Deck to handle in-game card handling",
-						"Added Card to associate action with a unique card",
+						"Add Grid to be a container and logic handler for interconnected places"
 						]
 				}
 			}
 		}
 	},
 	ScifiSim.Test : {
-		CardGameTest : ["Made console testing script to simulate UI for new Deck and Card mechanics, and renderign text based on actions to implement core gameplay"]
+		CardGameTest : ["Made console testing script to simulate grid generation and more in-depth gameplay"]
 	}
 	
 }
@@ -73,19 +77,23 @@ SVG code to render assets within c# form
 
 ## Latest Updates
 
-*15/07/24 - SWAT Game Design*
+*30/07/24 - SWAT Game Design*
 
-Implemented basic COnsole-based UI for SWAT game, ran a test game for MVP gameplay 
+Implemented console MVP of random house generation and enemy placement for cardgame MVP
 
-![ALt text](/Blackboard/SwatgameTestPlay.png)
+![SWAT Console Game](/Blackboard/README2.png)
 
 ## Next Build
 
-30/07/24 - BaseGame  **Delayed 3 Months Due To Contract Work**
+31/08/24 - Complete MVP  **On Track**
 
-* SWAT game MVP implemented
+* SWAT MVP, Suspect viewer, codeword minigame with UI and functional/ interconnected
 
-* Handcuffing suspected terrorist will prevent movement and plot
+* User Guide adjusted to be clear. clean.
+
+* Overall UI of application improved
+
+* Intro scene detailing a how-to guide
 
 
 ## Skill developing

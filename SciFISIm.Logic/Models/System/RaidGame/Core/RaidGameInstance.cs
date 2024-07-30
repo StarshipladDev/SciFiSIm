@@ -11,12 +11,18 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
         public List<Place> places;
         public List<Actor> actors;
         Deck cardDeck;
-        public RaidGameInstance()
+        public Grid grid;
+        public RaidGameInstance(int gridSize = 5)
         {
             this.places = new List<Place>();
             this.actors = new List<Actor>();
             this.cardDeck = new Deck(new List<Card>(), this);
+            this.grid = new Grid(gridSize,gridSize);
 
+        }
+        public void AddNewPlace(string placeName)
+        {
+            this.grid.PlaceObject(placeName);
         }
         public List<Card> GetDeckHand()
         {

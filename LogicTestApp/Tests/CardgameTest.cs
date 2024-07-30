@@ -5,7 +5,9 @@ using SciFiSim.Logic.Models.System.RaidGame.Behaviours;
 using SciFiSim.Logic.Models.System.RaidGame.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,10 +15,17 @@ namespace LogicTestApp.Tests
 {
     public static class CardgameTest
     {
+
+        public class GameSetup
+        {
+            public RaidGameInstance gameInstance;
+            public Actor agent;
+            public List<Actor> redforAgents;
+        }
         public static void RunCardgameTest()
         {
             List<Card> cardList = new List<Card>();
-            Actor newActor = new Actor( new ActorDetails(3, FactionType.Blufor, "BLUFOR agent"));
+            Actor newActor = new Actor(new ActorDetails(3, FactionType.Blufor, "BLUFOR agent"));
             cardList.Add(new Card(new BlastAway(newActor)));
             cardList.Add(new Card(new Prefire(newActor)));
             cardList.Add(new Card(new Prefire(newActor)));
@@ -37,12 +46,29 @@ namespace LogicTestApp.Tests
 
 
         }
-        public static void RunCardgameTestActions( bool debug = true)
+
+        public static bool CanEndTurn(Actor agent)
+        {
+            return (
+                    agent
+                    .currentLocation
+                    .actorsInPlace
+                    .Where(
+                        actor => (
+                            actor.details.factionType == FactionType.Redfor
+                            && actor.isAlive
+                        )
+                    )
+                    .ToList().Count == 0
+                );
+        }
+
+        public static GameSetup SetUpBasicGame(bool debug, int gridSize = 5)
         {
             DebugWrite("Starting Simulation", debug);
             // initalize
             List<Card> cardList = new List<Card>();
-            RaidGameInstance gameInstance = new RaidGameInstance();
+            RaidGameInstance gameInstance = new RaidGameInstance(gridSize);
 
 
             // Set up agents in the world
@@ -87,11 +113,20 @@ namespace LogicTestApp.Tests
             gameInstance.ShuffleAllCardsInDeck();
             DebugWrite("Shuffled Deck", debug);
 
+            return new GameSetup() { gameInstance = gameInstance, agent = agent, redforAgents = new List<Actor> { redfor1, redfor2 } };
+
+        }
+        public static void RunCardgameTestActions(bool debug = true)
+        {
+            GameSetup gameState = SetUpBasicGame(debug);
+            RaidGameInstance gameInstance = gameState.gameInstance;
+            Actor agent = gameState.agent;
+
             while (agent.isAlive)
             {
                 int cardsToDraw = 2;
-                DebugWrite($"New Turn, Drawing {cardsToDraw} cards",true);
-                for(int i = 0; i < cardsToDraw; i++)
+                DebugWrite($"New Turn, Drawing {cardsToDraw} cards", true);
+                for (int i = 0; i < cardsToDraw; i++)
                 {
                     var latestCard = gameInstance.DrawACard();
                     if (latestCard != null)
@@ -106,8 +141,7 @@ namespace LogicTestApp.Tests
 
                 //Print End Of Turn Summary:
                 DebugWrite($"Your hand is " +
-                    $"{
-                    String.Join(
+                    $"{String.Join(
                         ',',
                         gameInstance
                             .GetDeckHand()
@@ -115,28 +149,17 @@ namespace LogicTestApp.Tests
                                 x => x.cardAction.actionTitle
                             )
                             .ToArray()
-                    )}", 
+                    )}",
                     true
                 );
-                DebugWrite($"The current Room is "+agent.currentLocation.placeName,
+                DebugWrite($"The current Room is " + agent.currentLocation.placeName,
                     true
                 );
 
                 //Check If Room Clear, play cards otherwise
-                bool canEndTurn = (
-                    agent
-                    .currentLocation
-                    .actorsInPlace
-                    .Where(
-                        actor => (
-                            actor.details.factionType == FactionType.Redfor
-                            && actor.isAlive
-                        )
-                    )
-                    .ToList().Count == 0
-                );
+                bool canEndTurn = CanEndTurn(agent);
 
-                while(!canEndTurn)
+                while (!canEndTurn)
                 {
 
                     //Get Instruction And End Turn
@@ -146,9 +169,10 @@ namespace LogicTestApp.Tests
                         agent
                         .currentLocation
                         .actorsInPlace
-                        .Where( (actor) => actor.isAlive)
+                        .Where((actor) => actor.isAlive)
                         .ToList()
-                        .ForEach((actor) => {
+                        .ForEach((actor) =>
+                        {
 
                             DebugWrite($"{actor.details.actorName}, Faction : {actor.details.factionType}", debug);
                         });
@@ -169,25 +193,30 @@ namespace LogicTestApp.Tests
                     DebugWrite($"Instruction Is index of target, comma, index of card", true);
                     string nextInstruction = Console.ReadLine();
                     InterpretCommand(CommandTypes.PlayCard, gameInstance, agent, nextInstruction);
-                    if(gameInstance.GetDeckHand().Count() == 0)
+                    canEndTurn = CanEndTurn(agent);
+                    if (!canEndTurn)
                     {
-
-                        DebugWrite($"All cards are out, reshuffling", debug);
-                        gameInstance.ShuffleAllCardsInDeck();
-                        DebugWrite($"New Turn, Drawing {cardsToDraw} cards", true);
-                        for (int i = 0; i < cardsToDraw; i++)
+                        if (gameInstance.GetDeckHand().Count() == 0)
                         {
-                            var latestCard = gameInstance.DrawACard();
-                            if (latestCard != null)
+
+                            DebugWrite($"All cards are out, reshuffling", debug);
+                            gameInstance.ShuffleAllCardsInDeck();
+                            DebugWrite($"New Turn, Drawing {cardsToDraw} cards", true);
+                            for (int i = 0; i < cardsToDraw; i++)
                             {
-                                DebugWrite($"You Drew {latestCard.cardAction.actionTitle}", true);
-                            }
-                            else
-                            {
-                                DebugWrite($"No Card Drawn", true);
+                                var latestCard = gameInstance.DrawACard();
+                                if (latestCard != null)
+                                {
+                                    DebugWrite($"You Drew {latestCard.cardAction.actionTitle}", true);
+                                }
+                                else
+                                {
+                                    DebugWrite($"No Card Drawn", true);
+                                }
                             }
                         }
                     }
+
                 }
 
                 DebugWrite($"Room Clear, Discarding Hand", true);
@@ -200,6 +229,139 @@ namespace LogicTestApp.Tests
 
             }
         }
+
+
+        public static void RunCardgameTestActionsAndPalceGeneration(bool debug = true, int buildingCOunt = 4)
+        {
+            GameSetup gameState = SetUpBasicGame(debug);
+            RaidGameInstance gameInstance = gameState.gameInstance;
+            Actor agent = gameState.agent;
+            Random rand = new Random();
+
+            for (int index = 0; index < buildingCOunt; index++)
+            {
+                gameInstance.grid.PlaceObject($"P{index}");
+            }
+            agent.ChangeLocation(gameInstance.grid.Places[0]);
+            gameState.redforAgents.ForEach((redforAgent) =>
+            {
+                redforAgent.ChangeLocation(gameInstance.grid.Places[rand.Next(gameInstance.grid.Places.Count)]);
+            });
+
+            gameInstance.grid.DisplayGridWithNames();
+            while (agent.isAlive)
+            {
+                int cardsToDraw = 2;
+                DebugWrite($"New Turn, Drawing {cardsToDraw} cards", true);
+                for (int i = 0; i < cardsToDraw; i++)
+                {
+                    var latestCard = gameInstance.DrawACard();
+                    if (latestCard != null)
+                    {
+                        DebugWrite($"You Drew {latestCard.cardAction.actionTitle}", true);
+                    }
+                    else
+                    {
+                        DebugWrite($"No Card Drawn", true);
+                    }
+                }
+
+                //Print End Of Turn Summary:
+                DebugWrite($"Your hand is " +
+                    $"{String.Join(
+                        ',',
+                        gameInstance
+                            .GetDeckHand()
+                            .Select(
+                                x => x.cardAction.actionTitle
+                            )
+                            .ToArray()
+                    )}",
+                    true
+                );
+                DebugWrite($"The current Room is " + agent.currentLocation.placeName,
+                    true
+                );
+                gameInstance.grid.DisplayGridWithNames();
+
+                //Check If Room Clear, play cards otherwise
+                bool canEndTurn = CanEndTurn(agent);
+
+                while (!canEndTurn)
+                {
+
+                    //Get Instruction And End Turn
+                    DebugWrite($"Type Your Next Instruction", true);
+                    DebugWrite($"The following agents are in the room ", debug);
+                    {
+                        agent
+                        .currentLocation
+                        .actorsInPlace
+                        .Where((actor) => actor.isAlive)
+                        .ToList()
+                        .ForEach((actor) =>
+                        {
+
+                            DebugWrite($"{actor.details.actorName}, Faction : {actor.details.factionType}", debug);
+                        });
+                    }
+                    DebugWrite(
+                        $"Your hand is " +
+                        $"{String.Join(
+                            ',',
+                            gameInstance
+                                .GetDeckHand()
+                                .Select(
+                                    x => x.cardAction.actionTitle
+                                )
+                                .ToArray()
+                        )}",
+                        true
+                    );
+                    DebugWrite($"Instruction Is index of target, comma, index of card", true);
+                    string nextInstruction = Console.ReadLine();
+                    InterpretCommand(CommandTypes.PlayCard, gameInstance, agent, nextInstruction);
+                    canEndTurn = CanEndTurn(agent);
+                    if (!canEndTurn)
+                    {
+                        if (gameInstance.GetDeckHand().Count() == 0)
+                        {
+
+                            DebugWrite($"All cards are out, reshuffling", debug);
+                            gameInstance.ShuffleAllCardsInDeck();
+                            DebugWrite($"New Turn, Drawing {cardsToDraw} cards", true);
+                            for (int i = 0; i < cardsToDraw; i++)
+                            {
+                                var latestCard = gameInstance.DrawACard();
+                                if (latestCard != null)
+                                {
+                                    DebugWrite($"You Drew {latestCard.cardAction.actionTitle}", true);
+                                }
+                                else
+                                {
+                                    DebugWrite($"No Card Drawn", true);
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                DebugWrite($"Room Clear, Discarding Hand", true);
+                gameInstance.DiscardAllCardsInHand();
+
+                DebugWrite($"Discarded Hand, Hand Count is {gameInstance.GetDeckHand().Count()}", debug);
+                DebugWrite($"Enter a RoomToEnter ", true);
+                int roomIndex = 0;
+                agent.currentLocation.ConnectedPlaces.ForEach(place =>
+                { DebugWrite($"Enter a RoomToEnter {roomIndex}: {place.placeName}", true); roomIndex++; });
+                string nextRoomInstruction = Console.ReadLine();
+                InterpretCommand(CommandTypes.AdvancedMovement, gameInstance, agent, nextRoomInstruction);
+
+            }
+        }
+
+
         public static void DebugWrite(string message, bool debug)
         {
             if (debug)
@@ -207,9 +369,11 @@ namespace LogicTestApp.Tests
                 Console.WriteLine(message);
             }
         }
-        public enum CommandTypes{
+        public enum CommandTypes
+        {
             Movement,
-            PlayCard
+            PlayCard,
+            AdvancedMovement
         };
 
         public static void InterpretCommand(
@@ -241,16 +405,45 @@ namespace LogicTestApp.Tests
                             actor => actor.details.factionType == FactionType.Redfor
                         )
                         .ToList()
-                        .ForEach( (enemy) => {
+                        .ForEach((enemy) =>
+                        {
+                            gameInstance.AddCardToDeck(enemy.behaviours[0].cardActionList[0]);
+                        });
+                        gameInstance.ShuffleAllCardsInDeck();
+                    }
+                    break;
+                case CommandTypes.AdvancedMovement:
+                    int roomAdvanceIndex = Int32.Parse(instruction);
+                    List<Place> possiblePlaces = agent.currentLocation.ConnectedPlaces;
+                    agent.ChangeLocation(possiblePlaces[roomAdvanceIndex]);
+
+                    DebugWrite($"Entered {possiblePlaces[roomAdvanceIndex].placeName}", true);
+                    if (
+                        possiblePlaces[roomAdvanceIndex].actorsInPlace
+                        .Where(
+                            actor => actor.details.factionType == FactionType.Redfor
+                        )
+                        .ToList().Count > 0)
+                    {
+
+                        DebugWrite($"Enemies In Room, Adding their actions", true);
+                        possiblePlaces[roomAdvanceIndex].actorsInPlace
+                        .Where(
+                            actor => actor.details.factionType == FactionType.Redfor
+                        )
+                        .ToList()
+                        .ForEach((enemy) =>
+                        {
                             gameInstance.AddCardToDeck(enemy.behaviours[0].cardActionList[0]);
                         });
                         gameInstance.ShuffleAllCardsInDeck();
                     }
                     break;
                 case CommandTypes.PlayCard:
+                    List<Actor> possibleTargets = agent.currentLocation.actorsInPlace.Where(x => x.isAlive).ToList();
                     int targetIndex = Int32.Parse(instruction.Split(',')[0]);
                     int cardIndex = Int32.Parse(instruction.Split(',')[1]);
-                    gameInstance.PlayCardInHand(gameInstance.GetDeckHand()[cardIndex], gameInstance.actors[targetIndex]);
+                    gameInstance.PlayCardInHand(gameInstance.GetDeckHand()[cardIndex], possibleTargets[targetIndex]);
                     break;
             }
         }

@@ -6,13 +6,22 @@
       "AbsoluteMoniker": "D:0:0:{5CB0949D-41E5-41FE-A77F-F8DB37542209}|..\\LogicTestApp\\LogicTestApp.csproj|c:\\code\\c#\\specopscontrolapp\\logictestapp\\tests\\cardgametest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CB0949D-41E5-41FE-A77F-F8DB37542209}|..\\LogicTestApp\\LogicTestApp.csproj|c:\\code\\c#\\specopscontrolapp\\logictestapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\raidgameinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\actors\\actordetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\core\\place.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73FEC900-37C8-4A61-83F9-7ECE1F0BF009}|..\\SciFISIm.Logic\\SciFiSim.Logic.csproj|c:\\code\\c#\\specopscontrolapp\\scifisim.logic\\models\\system\\raidgame\\actors\\actordetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +31,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Program.cs",
+              "RelativeDocumentMoniker": "..\\LogicTestApp\\Program.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Program.cs",
+              "RelativeToolTip": "..\\LogicTestApp\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T11:41:40.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Place.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Place.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T11:21:38.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Grid.cs",
+              "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Grid.cs",
+              "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Grid.cs",
+              "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Grid.cs",
+              "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Grid.cs",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAAwA8AAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T11:21:28.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ActorDetails.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actors\\ActorDetails.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actors\\ActorDetails.cs",
@@ -34,34 +79,31 @@
               "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Actors\\ActorDetails.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T04:17:54.912Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-28T04:17:54.912Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Deck.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
               "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
               "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\Deck.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAgwBQAAAAYAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBQAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T03:52:06.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-28T03:52:06.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "RaidGameInstance.cs",
               "DocumentMoniker": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
               "RelativeDocumentMoniker": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
               "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
               "RelativeToolTip": "..\\SciFISIm.Logic\\Models\\System\\RaidGame\\Core\\RaidGameInstance.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAawEUAAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T03:51:57.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-28T03:51:57.31Z"
             },
             {
               "$type": "Document",
@@ -71,7 +113,7 @@
               "RelativeDocumentMoniker": "..\\LogicTestApp\\Tests\\CardgameTest.cs",
               "ToolTip": "C:\\Code\\C#\\SpecOpsControlApp\\LogicTestApp\\Tests\\CardgameTest.cs",
               "RelativeToolTip": "..\\LogicTestApp\\Tests\\CardgameTest.cs",
-              "ViewState": "AQIAAJAAAAAAAAAAAAAAALUAAAAdAAAA",
+              "ViewState": "AQIAAJcBAAAAAAAAAAAtwL0BAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-28T03:14:25.155Z",
               "EditorCaption": ""
