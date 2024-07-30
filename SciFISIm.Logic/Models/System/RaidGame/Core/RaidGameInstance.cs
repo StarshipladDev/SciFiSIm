@@ -8,24 +8,75 @@ namespace SciFiSim.Logic.Models.System.RaidGame.Core
 {
     public class RaidGameInstance
     {
-        List<Place> places;
-        List<Actor> actors;
+        public List<Place> places;
+        public List<Actor> actors;
+        Deck cardDeck;
         public RaidGameInstance()
         {
             this.places = new List<Place>();
             this.actors = new List<Actor>();
-
+            this.cardDeck = new Deck(new List<Card>(), this);
 
         }
-
-        public string UpdateInstance(Action action)
+        public List<Card> GetDeckHand()
         {
-            string replytext = "";
-            foreach (Actor actor in actors)
+            return this.cardDeck.cardsInHand;
+        }
+        public Stack<Card> GetUnplayedCards()
+        {
+            return this.cardDeck.unplayedCards;
+        }
+        public Card? DrawACard()
+        {
+            return this.cardDeck.DrawACard();
+        }
+        public void SetDeck(List<Card> cardList)
+        {
+            this.cardDeck.SetUpDeck(cardList);
+        }
+        public void AddCardToHand(Card cardToAdd)
+        {
+            this.cardDeck.allCardsInDeck.Add(cardToAdd);
+            this.cardDeck.cardsInHand.Add(cardToAdd); ;
+        }
+        public void AddCardToDeck(Card cardToAdd)
+        {
+            this.cardDeck.allCardsInDeck.Add(cardToAdd);
+        }
+        public void PlayCardInHand(Card cardPlayed, Actor? targetedActor)
+        {
+            this.cardDeck.PlayACard(cardPlayed, targetedActor);
+        }
+
+        public void DiscardAllCardsInHand()
+        {
+            List<Card> cardsToRemove = new List<Card>();
+            foreach (Card card in this.cardDeck.cardsInHand)
             {
-                replytext += $"In response to your " + action.actionTitle + " an actor " + actor.behaviours[0].actionList[0].actionTitle+"\n";
+                cardsToRemove.Add(card);
             }
-            return replytext;
+            cardsToRemove.ForEach((card) =>
+            {
+                DiscardCardInHand(card);
+            });
+        }
+        public void DiscardCardInHand(Card cardToDiscard)
+        {
+            this.cardDeck.DiscardACardFromHand(cardToDiscard);
+        }
+        public void ShuffleAllCardsInDeck()
+        {
+            this.cardDeck.SetUpDeck(this.cardDeck.allCardsInDeck);
+            this.cardDeck.ShuffleDeck();
+        }
+        public string PrintCardNamesInHand()
+        {
+            string returnString = "";
+            foreach (Card card in cardDeck.cardsInHand)
+            {
+                returnString = card.cardAction.actionTitle + "|";
+            }
+            return returnString;
         }
     }
 }

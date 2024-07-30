@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace SciFiSim.Logic.Models.System.RaidGame.Core
 {
-    internal class Place
+    public class Place
     {
+        public List<Actor> actorsInPlace;
+        public string placeName;
+
+        public Place(string placeName)
+        {
+            actorsInPlace = new List<Actor>();
+            this.placeName = placeName;
+        }
     }
 }
