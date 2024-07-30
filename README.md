@@ -26,7 +26,7 @@ SVG code to render assets within c# form
 
 **CURRENT 30/07/24 , SWAT Game Console MVP**
 
-![SWAT Console Game](/Blackboard/README2.png)
+![SWAT Console Game](/Blackboard/README2.PNG)
 
 **15/07/24 , SWAT Game Design**
 
@@ -49,7 +49,7 @@ SVG code to render assets within c# form
 
 *30/07/24 , SWAT Game Console MVP*
 
-![SWAT Console Game](/Blackboard/README2.png)
+![SWAT Console Game](/Blackboard/README2.PNG)
 
 ## Latest Update Notes:
 
@@ -81,7 +81,7 @@ SVG code to render assets within c# form
 
 Implemented console MVP of random house generation and enemy placement for cardgame MVP
 
-![SWAT Console Game](/Blackboard/README2.png)
+![SWAT Console Game](/Blackboard/README2.PNG)
 
 ## Next Build
 
